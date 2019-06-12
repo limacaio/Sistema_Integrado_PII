@@ -77,7 +77,7 @@ public class Menu extends JFrame {
 		mntmNewMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Tela_cadUsuario cadUsuario = new Tela_cadUsuario();
+				CadUsuario cadUsuario = new CadUsuario();
 				cadUsuario.setVisible(true);
 				cadUsuario.setLocationRelativeTo(null);
 			}
@@ -97,7 +97,7 @@ public class Menu extends JFrame {
 			
 			public void actionPerformed(ActionEvent arg0) {
 				
-				Tela_GerUsuario gerUsuario = new Tela_GerUsuario();
+				GerUsuario gerUsuario = new GerUsuario();
 				gerUsuario.setVisible(true);
 				gerUsuario.setLocationRelativeTo(null);
 				
