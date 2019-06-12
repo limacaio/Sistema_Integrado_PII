@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -160,6 +161,19 @@ public class CadUsuario extends JFrame {
 		panel_1.add(chcComum);
 		
 		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				/**
+				 * Mensagem para informar o cadastro realizado com sucesso!!
+				 * 
+				 * Winston
+				 * **/
+				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso !!");
+				dispose();
+				
+			}
+		});
 		btnSalvar.setBounds(43, 192, 89, 23);
 		panel.add(btnSalvar);
 		
