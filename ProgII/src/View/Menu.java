@@ -27,7 +27,7 @@ public class Menu extends JFrame {
 
 	/**
 	 * Launch the application.
-	 */
+	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -51,7 +51,7 @@ public class Menu extends JFrame {
 		setResizable(false);
 		setAutoRequestFocus(false);
 		setTitle("Menu");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		setBounds(100, 100, 1037, 753);
 		
@@ -62,36 +62,12 @@ public class Menu extends JFrame {
 		menuBar.add(mnNewMenu);
 		
 		JMenuItem mntmProduto = new JMenuItem("Produto");
-		mntmProduto.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			
-				//instanciando tela produto	
-			CadProduto frame = new CadProduto();
-			frame.setVisible(true);
-			frame.setLocationRelativeTo(null);
-			}
-		});
 		mnNewMenu.add(mntmProduto);
 		
-		
 		JMenuItem mntmCategoria = new JMenuItem("Categoria");
-		mntmCategoria.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				CadCategoria categ = new CadCategoria();
-				categ.setVisible(true);
-				categ.setLocationRelativeTo(null);
-			}
-		});
 		mnNewMenu.add(mntmCategoria);
 		
 		JMenuItem mntmMarca = new JMenuItem("Marca");
-		mntmMarca.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				CadMarca categ = new CadMarca();
-				categ.setVisible(true);
-				categ.setLocationRelativeTo(null);
-			}
-		});
 		mnNewMenu.add(mntmMarca);
 		
 		JMenu mnNewMenu_1 = new JMenu("Usuario");
@@ -110,6 +86,23 @@ public class Menu extends JFrame {
 		mnNewMenu_1.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Gerenciar Usuario");
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			/**
+			 * 
+			 * fazendo a chamada da tela quando o botão for acionado
+			 * 
+			 * WINSTON IGOR 08-06-2019
+			 * 
+			 * **/
+			
+			public void actionPerformed(ActionEvent arg0) {
+				
+				GerUsuario gerUsuario = new GerUsuario();
+				gerUsuario.setVisible(true);
+				gerUsuario.setLocationRelativeTo(null);
+				
+			}
+		});
 		mnNewMenu_1.add(mntmNewMenuItem_1);
 		
 		JMenu mnClientes = new JMenu("Clientes");
@@ -141,6 +134,5 @@ public class Menu extends JFrame {
 		panel_1.add(lblSistemaGerenciadorDe);
 		//panel.setLayout(BorderLayout.NORTH);
 		//panel.add(contentPane, BorderLayout.NORTH);
-		
 	}
 }

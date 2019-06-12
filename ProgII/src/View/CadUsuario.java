@@ -112,6 +112,14 @@ public class CadUsuario extends JFrame {
 		chcAdministrador = new JCheckBox("Administardor");
 		chcAdministrador.addActionListener(new ActionListener() {
 			
+			
+			/***
+			 * 
+			 * Procedimento para os Chc COMUM
+			 * 
+			 * WINSTON 08-06-2019
+			 * 
+			 * */
 			public void actionPerformed(ActionEvent e) {
 				if(chcAdministrador.isSelected() == false && chcComum.isSelected() == false) {
 					chcAdministrador.setEnabled(true);
@@ -130,6 +138,12 @@ public class CadUsuario extends JFrame {
 		chcComum = new JCheckBox("Comum");
 		chcComum.addActionListener(new ActionListener() {
 		
+		/**
+		 * PROCEDIMENTO PARA O CHC ADM
+		 * 
+		 * WINSTON 08-06-2019
+		 * 
+		 * **/
 			public void actionPerformed(ActionEvent e) {
 				
 				if(chcComum.isSelected() == true && chcAdministrador.isSelected() == false ) {
