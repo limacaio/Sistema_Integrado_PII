@@ -7,6 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+
+import Controller.UsuarioController;
+import Model.Usuario;
+
+
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
@@ -133,7 +138,7 @@ public class CadUsuario extends JFrame {
 			}
 				
 		});
-		chcAdministrador.setBounds(6, 24, 120, 23);
+		chcAdministrador.setBounds(6, 25, 120, 23);
 		panel_1.add(chcAdministrador);
 		
 		chcComum = new JCheckBox("Comum");
@@ -163,15 +168,26 @@ public class CadUsuario extends JFrame {
 		JButton btnSalvar = new JButton("Salvar");
 		btnSalvar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				/**
 				 * Mensagem para informar o cadastro realizado com sucesso!!
 				 * 
 				 * Winston
 				 * **/
-				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso !!");
-				dispose();
 				
+				Usuario usuario = new Usuario();
+				UsuarioController usuarioController = new UsuarioController();
+				
+				usuario.setNome(txtNomeCadUsuario.getText());
+				usuario.setEmail(txtEmailCadUsuario.getText());
+				usuario.setSenha(pswSenhaCadUsuario.getText());
+				usuario.setAdministrador(chcAdministrador.isSelected()? true:false);
+				
+				//inserindo o cadastro no banco 			
+				usuarioController.inserirUsuarioController(usuario);
+				JOptionPane.showMessageDialog(null, "Cadastro realizado com sucesso !!");
+				//usuario.setSenha.String.ParseString((pswSenhaCadUsuario.getPassword()));
+				dispose();
+								
 			}
 		});
 		btnSalvar.setBounds(43, 192, 89, 23);

@@ -13,13 +13,18 @@ public class Usuario {
 	private String senha;
 	private Boolean administrador;
 	
+	
+	/*public Usuario () {
+		
+	}
+	
 	public Usuario (String nome, String email, String senha, Boolean administrador) {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 		this.administrador = administrador;
 		
-	}
+	}*/
 
 	public int getId() {
 		return id;

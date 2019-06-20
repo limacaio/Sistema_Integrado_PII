@@ -70,9 +70,6 @@ public class Menu extends JFrame {
 		JMenuItem mntmMarca = new JMenuItem("Marca");
 		mnNewMenu.add(mntmMarca);
 		
-		JMenuItem mntmSituacaoDeVenda = new JMenuItem("Situa\u00E7\u00E3o de Venda");
-		mnNewMenu.add(mntmSituacaoDeVenda);
-		
 		JMenu mnNewMenu_1 = new JMenu("Usuario");
 		menuBar.add(mnNewMenu_1);
 		
@@ -116,30 +113,6 @@ public class Menu extends JFrame {
 		
 		JMenu mnApoio = new JMenu("Apoio");
 		menuBar.add(mnApoio);
-		
-		JMenuItem mntmConsultaVendas = new JMenuItem("Consulta Vendas");
-		mnApoio.add(mntmConsultaVendas);
-		mntmConsultaVendas.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				ConsultaVendas vendasAndamento = new ConsultaVendas();
-				vendasAndamento.setVisible(true);
-				vendasAndamento.setLocationRelativeTo(null);
-			}
-		});
-		
-		JMenuItem mntmConsultaItens = new JMenuItem("Consulta Itens");
-		mntmConsultaItens.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				ConsultaItens consultaItens = new ConsultaItens();
-				consultaItens.setVisible(true);
-				consultaItens.setLocationRelativeTo(null);
-			}
-		});
-		mnApoio.add(mntmConsultaItens);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
 		contentPane.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));

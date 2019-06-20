@@ -75,18 +75,13 @@ public class Login extends JFrame {
 			 * WINSTON 08-06-2019
 			 * 
 			 * 
-			 * **/
-			
-			
+			 * **/			
 			public void actionPerformed(ActionEvent e) {
 				
 				Login.this.setVisible(false);
 				Menu menu = new Menu();
 				menu.setVisible(true);
-				menu.setLocationRelativeTo(null);
-				
-				
-				
+				menu.setLocationRelativeTo(null);				
 			}
 		});
 		btnLoginEntrar.setBounds(111, 195, 89, 23);
@@ -101,8 +96,7 @@ public class Login extends JFrame {
 			 * 
 			 * **/
 			
-			public void actionPerformed(ActionEvent e) {
-				
+			public void actionPerformed(ActionEvent e) {				
 				dispose();
 			}
 		});
