@@ -20,6 +20,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Menu extends JFrame {
 
@@ -53,7 +54,7 @@ public class Menu extends JFrame {
 		setTitle("Menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		setBounds(100, 100, 1037, 753);
+		setBounds(100, 100, 615, 438);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -100,6 +101,8 @@ public class Menu extends JFrame {
 				GerUsuario gerUsuario = new GerUsuario();
 				gerUsuario.setVisible(true);
 				gerUsuario.setLocationRelativeTo(null);
+				gerUsuario.atualizarTabela();
+				
 				
 			}
 		});
@@ -123,15 +126,29 @@ public class Menu extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		JPanel panel_2 = new JPanel();
+		panel_2.setBackground(Color.LIGHT_GRAY);
+		panel_2.setBounds(10, 174, 585, 186);
+		panel.add(panel_2);
+		panel_2.setLayout(null);
+		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 631, 997, 48);
-		panel.add(panel_1);
+		panel_1.setBounds(0, 127, 583, 48);
+		panel_2.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblSistemaGerenciadorDe = new JLabel("SISTEMA GERENCIADOR DE VENDAS");
-		lblSistemaGerenciadorDe.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSistemaGerenciadorDe.setBounds(242, 11, 559, 14);
+		lblSistemaGerenciadorDe.setBounds(54, 11, 477, 14);
 		panel_1.add(lblSistemaGerenciadorDe);
+		lblSistemaGerenciadorDe.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		JLabel lblUsuario = new JLabel("Usuario:");
+		lblUsuario.setBounds(10, 23, 46, 14);
+		panel_1.add(lblUsuario);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(64, 23, 74, 14);
+		panel_1.add(lblNewLabel);
 		//panel.setLayout(BorderLayout.NORTH);
 		//panel.add(contentPane, BorderLayout.NORTH);
 	}

@@ -6,15 +6,22 @@ package Model;
   *  WINSTON IGOR **/
 public class Usuario {
 	
+	public static final String USUARIO_ID = "idUsuario";
+	public static final String USUARIO_NOME = "nome";
+	public static final String USUARIO_EMAIL = "email";
+	public static final String USUARIO_SENHA ="senha";
+	//public static final String USUARIO_ADMINISTRADOR = "administrador";
 	
-	private int id;
+	
+	
+	private int idUsuario;
 	private String nome;
 	private String email;
 	private String senha;
 	private Boolean administrador;
 	
 	
-	/*public Usuario () {
+	public Usuario () {
 		
 	}
 	
@@ -24,14 +31,14 @@ public class Usuario {
 		this.senha = senha;
 		this.administrador = administrador;
 		
-	}*/
-
-	public int getId() {
-		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public int getIdUsuario() {
+		return idUsuario;
+	}
+
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
 	}
 
 	public String getNome() {

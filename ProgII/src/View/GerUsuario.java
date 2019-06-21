@@ -12,20 +12,23 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Controller.UsuarioController;
+import Model.Usuario;
+
 public class GerUsuario extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTable tblUsuario;
 
-	/**
-	 * Launch the application.
+	
 	 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Tela_GerUsuario frame = new Tela_GerUsuario();
+					GerUsuario frame = new GerUsuario();
 					frame.setVisible(true);
+					frame.atualizarTabela();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -33,9 +36,7 @@ public class GerUsuario extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public GerUsuario() {
 		setTitle("Usuarios");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -47,16 +48,16 @@ public class GerUsuario extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(null, "Usuarios", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		panel.setBounds(10, 11, 511, 162);
+		panel.setBounds(10, 11, 511, 258);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 21, 491, 130);
+		scrollPane.setBounds(10, 21, 491, 226);
 		panel.add(scrollPane);
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
+		tblUsuario = new JTable();
+		tblUsuario.setModel(new DefaultTableModel(
 			new Object[][] {
 			},
 			new String[] {
@@ -70,23 +71,31 @@ public class GerUsuario extends JFrame {
 				return columnEditables[column];
 			}
 		});
-		table.getColumnModel().getColumn(0).setResizable(false);
-		table.getColumnModel().getColumn(1).setResizable(false);
-		table.getColumnModel().getColumn(2).setResizable(false);
-		table.getColumnModel().getColumn(3).setResizable(false);
-		table.getColumnModel().getColumn(4).setResizable(false);
-		scrollPane.setViewportView(table);
+		tblUsuario.getColumnModel().getColumn(0).setResizable(false);
+		tblUsuario.getColumnModel().getColumn(1).setResizable(false);
+		tblUsuario.getColumnModel().getColumn(2).setResizable(false);
+		tblUsuario.getColumnModel().getColumn(3).setResizable(false);
+		tblUsuario.getColumnModel().getColumn(4).setResizable(false);
+		scrollPane.setViewportView(tblUsuario);
+	}
+	/**
+	 * 
+	 * Metodo para atualiazar a tabela
+	 * 
+	 * winston igor 20-06-2019
+	 */
+	
+	public void atualizarTabela() {
 		
-		JButton btnEditar = new JButton("EDITAR");
-		btnEditar.setBounds(30, 184, 89, 23);
-		contentPane.add(btnEditar);
+		Object colunas [] = {"ID", "Nome", "Email", "Senha", "Tipo"};
+		DefaultTableModel modelo = new DefaultTableModel(colunas, 0);
 		
-		JButton btnExcluir = new JButton("EXCLUIR");
-		btnExcluir.setBounds(30, 218, 89, 23);
-		contentPane.add(btnExcluir);
-		
-		JButton btnSalvar = new JButton("SALVAR");
-		btnSalvar.setBounds(30, 247, 89, 23);
-		contentPane.add(btnSalvar);
+		UsuarioController usuarioController = new UsuarioController();
+		for(Usuario usuario : usuarioController.buscarUsuarioController()) {
+			Object linha[] = new Object[]{usuario.getIdUsuario(),usuario.getNome(),usuario.getEmail(),
+				usuario.getSenha(), usuario.getAdministrador()};
+			modelo.addRow(linha);
+		}
+		tblUsuario.setModel(modelo);
 	}
 }

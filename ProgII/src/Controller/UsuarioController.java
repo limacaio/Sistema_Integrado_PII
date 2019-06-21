@@ -1,5 +1,8 @@
 package Controller;
 
+
+import java.util.ArrayList;
+
 import DAO.UsuarioDAO;
 import Model.Usuario;
 
@@ -25,9 +28,12 @@ public class UsuarioController {
 			System.out.println("Inserida com sucesso");
 		}else {
 			System.out.println("Erro na insercao");
-		}
-		
+		}		
 		
 	}
-
+	
+	public ArrayList<Usuario> buscarUsuarioController(){
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		return usuarioDAO.buscarUsuarioDAO();
+	}
 }

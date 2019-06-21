@@ -1,8 +1,10 @@
 package DAO;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -86,7 +88,7 @@ public class UsuarioDAO {
 		PreparedStatement stmt =null;
 		try {
 			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, usuario.getId());
+			stmt.setInt(1, usuario.getIdUsuario());
 			stmt.executeUpdate();
 			
 			return true;
@@ -97,6 +99,36 @@ public class UsuarioDAO {
 		}finally {
 			ConnectionDB.closeConnection(con, stmt);
 		}
+		
+	}
+	
+	public ArrayList<Usuario> buscarUsuarioDAO(){
+		
+		String sql = "SELECT * FROM usuario ORDER BY IdUsuario ";
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		ArrayList<Usuario> usuarioList = new ArrayList<>();
+		
+		try {
+			stmt = con.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			
+			while (rs.next()) {
+				Usuario usuario = new Usuario();
+				
+				usuario.setIdUsuario(rs.getInt(usuario.USUARIO_ID));
+				usuario.setNome(rs.getString(usuario.USUARIO_NOME));
+				usuario.setEmail(rs.getString(usuario.USUARIO_EMAIL));
+				usuario.setSenha(rs.getString(usuario.USUARIO_SENHA));
+				//usuario.setAdministrador(rs.(usuario.getAdministrador()));
+				usuarioList.add(usuario);
+			}
+		} catch (SQLException ex) {
+			System.out.println("Erro ao buscar UsuarioDAO" + ex);
+		}finally {
+			ConnectionDB.closeConnection(con, stmt, rs);
+		}
+		return usuarioList;
 		
 	}
 	
