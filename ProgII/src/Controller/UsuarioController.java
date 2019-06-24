@@ -32,8 +32,29 @@ public class UsuarioController {
 		
 	}
 	
+	public void excluirUsuarioController(Usuario usuario) {
+		
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		if (usuarioDAO.excluirusuarioDAO(usuario)) {
+			System.out.println("Controller: categoria EXLUIDA");
+		} else {
+			System.out.println("Controller: erro na exclusao");
+		}
+	}
+	
 	public ArrayList<Usuario> buscarUsuarioController(){
 		UsuarioDAO usuarioDAO = new UsuarioDAO();
 		return usuarioDAO.buscarUsuarioDAO();
 	}
+	
+public void atualizarUsuarioController(Usuario usuario){
+        
+        UsuarioDAO UsuarioDAO = new UsuarioDAO();
+        
+        if(UsuarioDAO.atualizarUsuarioDAO(usuario)){
+            System.out.println("Controller: Usuario ATUALIZADA com sucesso ");
+        } else{
+            System.out.println("Controller: Erro na ATUALIZAÇÃO: atualizarCategriaController");
+        }
+    }
 }

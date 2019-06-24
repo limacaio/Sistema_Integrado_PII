@@ -10,7 +10,9 @@ public class Usuario {
 	public static final String USUARIO_NOME = "nome";
 	public static final String USUARIO_EMAIL = "email";
 	public static final String USUARIO_SENHA ="senha";
+	public static final String USUARIO_TIPO ="tipo";
 	//public static final String USUARIO_ADMINISTRADOR = "administrador";
+	public static final String USUARIO_SITUACAO ="situacao";
 	
 	
 	
@@ -18,20 +20,32 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
-	private Boolean administrador;
+	private String tipo;
+	//private Boolean administrador;
+	private int situacao;
 	
 	
 	public Usuario () {
 		
 	}
 	
-	public Usuario (String nome, String email, String senha, Boolean administrador) {
+	public Usuario (String nome, String email, String senha, /*Booleanadministrador*/ String tipo, int situacao) {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		this.administrador = administrador;
+		this.tipo = tipo;
+		//this.administrador = administrador;
 		
 	}
+	
+	public int getSituacao(){
+		return situacao;
+	}
+
+	public void setSituacao(int situacao) {
+		this.situacao = situacao;
+	}
+
 
 	public int getIdUsuario() {
 		return idUsuario;
@@ -65,12 +79,19 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public Boolean getAdministrador() {
+	/*public Boolean getAdministrador() {
 		return administrador;
 	}
 
 	public void setAdministrador(Boolean administrador) {
 		this.administrador = administrador;
+	}*/
+	public String getTipo() {
+	return tipo;
+	}
+
+	public void setTipo(String tipo) {
+	this.tipo = tipo;
 	}
 	
 	

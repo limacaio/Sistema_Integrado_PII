@@ -13,6 +13,7 @@ import java.awt.SystemColor;
 import javax.swing.JDesktopPane;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
@@ -21,10 +22,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.border.LineBorder;
+
+import DAO.UsuarioDAO;
+import java.awt.Font;
 
 public class Menu extends JFrame {
 
 	private JPanel contentPane;
+	private JLabel lblUsuario;
+	public JMenu mnApoio, mnClientes,mnCadastro, mnUsuario ;
+	
 
 	/**
 	 * Launch the application.
@@ -48,7 +56,9 @@ public class Menu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Menu() {
+	public Menu(String usuario) { // passando o usuario que que fez o login
+		
+		
 		setResizable(false);
 		setAutoRequestFocus(false);
 		setTitle("Menu");
@@ -59,20 +69,39 @@ public class Menu extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("Cadastro");
-		menuBar.add(mnNewMenu);
+		mnCadastro = new JMenu("Cadastro");
+		mnCadastro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				/***
+				 * 
+				 * 
+				 * BLOCO DE PERMISÃO
+				 * FALTA TERMINAR 
+				 * WINSTON IGOR
+				 * 
+				 * 
+				 
+				UsuarioDAO usuarioDAO = new UsuarioDAO();			
+				if(usuarioDAO.verificaUsuarioDAO("administrador")) {
+					mnNewMenu.setEnabled(false);
+				} else {
+					JOptionPane.showMessageDialog(null, "O Usuario não consta cadastrado ou esta inativo !");
+				}	*/
+			}
+		});
+		menuBar.add(mnCadastro);
 		
 		JMenuItem mntmProduto = new JMenuItem("Produto");
-		mnNewMenu.add(mntmProduto);
+		mnCadastro.add(mntmProduto);
 		
 		JMenuItem mntmCategoria = new JMenuItem("Categoria");
-		mnNewMenu.add(mntmCategoria);
+		mnCadastro.add(mntmCategoria);
 		
 		JMenuItem mntmMarca = new JMenuItem("Marca");
-		mnNewMenu.add(mntmMarca);
+		mnCadastro.add(mntmMarca);
 		
-		JMenu mnNewMenu_1 = new JMenu("Usuario");
-		menuBar.add(mnNewMenu_1);
+		mnUsuario = new JMenu("Usuario");
+		menuBar.add(mnUsuario);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("Novo Usuario");
 		mntmNewMenuItem.addActionListener(new ActionListener() {
@@ -84,7 +113,7 @@ public class Menu extends JFrame {
 			}
 		});
 		
-		mnNewMenu_1.add(mntmNewMenuItem);
+		mnUsuario.add(mntmNewMenuItem);
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Gerenciar Usuario");
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
@@ -106,15 +135,19 @@ public class Menu extends JFrame {
 				
 			}
 		});
-		mnNewMenu_1.add(mntmNewMenuItem_1);
+		mnUsuario.add(mntmNewMenuItem_1);
 		
-		JMenu mnClientes = new JMenu("Clientes");
+		mnClientes = new JMenu("Clientes");
 		menuBar.add(mnClientes);
 		
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("Gerenciar Cliente");
 		mnClientes.add(mntmNewMenuItem_2);
 		
-		JMenu mnApoio = new JMenu("Apoio");
+		mnApoio = new JMenu("Apoio");
+		mnApoio.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		menuBar.add(mnApoio);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.activeCaption);
@@ -123,33 +156,41 @@ public class Menu extends JFrame {
 		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
+		panel.setBackground(SystemColor.textHighlight);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
 		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(Color.LIGHT_GRAY);
+		panel_2.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_2.setBackground(SystemColor.activeCaption);
 		panel_2.setBounds(10, 174, 585, 186);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 		
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 127, 583, 48);
+		panel_1.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+		panel_1.setBounds(10, 127, 565, 48);
 		panel_2.add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblSistemaGerenciadorDe = new JLabel("SISTEMA GERENCIADOR DE VENDAS");
+		lblSistemaGerenciadorDe.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblSistemaGerenciadorDe.setForeground(Color.RED);
 		lblSistemaGerenciadorDe.setBounds(54, 11, 477, 14);
 		panel_1.add(lblSistemaGerenciadorDe);
 		lblSistemaGerenciadorDe.setHorizontalAlignment(SwingConstants.CENTER);
 		
-		JLabel lblUsuario = new JLabel("Usuario:");
-		lblUsuario.setBounds(10, 23, 46, 14);
-		panel_1.add(lblUsuario);
+		JLabel lblUsuarioN = new JLabel("Usuario Logado:");
+		lblUsuarioN.setForeground(Color.BLUE);
+		lblUsuarioN.setBounds(10, 23, 92, 14);
+		panel_1.add(lblUsuarioN);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(64, 23, 74, 14);
-		panel_1.add(lblNewLabel);
+		lblUsuario = new JLabel("New label");
+		lblUsuario.setHorizontalAlignment(SwingConstants.LEFT);
+		lblUsuario.setBounds(112, 23, 97, 14);
+		panel_1.add(lblUsuario);
 		//panel.setLayout(BorderLayout.NORTH);
 		//panel.add(contentPane, BorderLayout.NORTH);
+		lblUsuario.setText(usuario); // recebendo o usuario
 	}
 }

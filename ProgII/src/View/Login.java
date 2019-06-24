@@ -6,7 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import DAO.UsuarioDAO;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -29,6 +33,7 @@ public class Login extends JFrame {
 				try {
 					Login frame = new Login();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,6 +45,7 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -49,7 +55,7 @@ public class Login extends JFrame {
 		
 		JLabel lblUsuario = new JLabel("USUARIO ");
 		lblUsuario.setHorizontalAlignment(SwingConstants.CENTER);
-		lblUsuario.setBounds(160, 34, 82, 14);
+		lblUsuario.setBounds(184, 34, 82, 14);
 		contentPane.add(lblUsuario);
 		
 		txtLoginUsuario = new JTextField();
@@ -59,7 +65,7 @@ public class Login extends JFrame {
 		
 		JLabel lblSenha = new JLabel("SENHA");
 		lblSenha.setHorizontalAlignment(SwingConstants.CENTER);
-		lblSenha.setBounds(181, 99, 46, 14);
+		lblSenha.setBounds(203, 99, 46, 14);
 		contentPane.add(lblSenha);
 		
 		pwsLoginSenha = new JPasswordField();
@@ -68,20 +74,19 @@ public class Login extends JFrame {
 		
 		JButton btnLoginEntrar = new JButton("ENTRAR");
 		btnLoginEntrar.addActionListener(new ActionListener() {
-			/**
-			 * 
-			 * chamando o menu assim que clikar no botão entrar
-			 * 
-			 * WINSTON 08-06-2019
-			 * 
-			 * 
-			 * **/			
 			public void actionPerformed(ActionEvent e) {
+				/**
+				 * 
+				 * chamando o menu assim que clikar no botão entrar
+				 * 
+				 * WINSTON 08-06-2019
+				 * 
+				 * 
+				 * **/		
+				//Login.this.setVisible(false);
+				verificaCampo(); // procedimento de login
+							
 				
-				Login.this.setVisible(false);
-				Menu menu = new Menu();
-				menu.setVisible(true);
-				menu.setLocationRelativeTo(null);				
 			}
 		});
 		btnLoginEntrar.setBounds(111, 195, 89, 23);
@@ -102,5 +107,32 @@ public class Login extends JFrame {
 		});
 		btnLoginSair.setBounds(229, 195, 89, 23);
 		contentPane.add(btnLoginSair);
+	}
+	
+	/*
+	 * METODO PARA VERIFICAR O LOGIN
+	 * 
+	 * WINSTON IGOR
+	 * 
+	 */
+	
+	public void verificaCampo() {
+		
+		if(txtLoginUsuario.getText() == null || txtLoginUsuario.getText().isEmpty() ||
+				(pwsLoginSenha.getText() == null || pwsLoginSenha.getText().isEmpty())){			
+			JOptionPane.showMessageDialog(null,"Existem campos nulos");
+		}else {
+			
+			UsuarioDAO usuarioDAO = new UsuarioDAO();
+			
+			if(usuarioDAO.verificarLogin(txtLoginUsuario.getText(), new String(pwsLoginSenha.getText()))) {
+				//Menu menu = new Menu(txtLoginUsuario.getText());// passagem do parametro
+				//menu.setVisible(true);
+				//menu.setLocationRelativeTo(null);
+			} else {
+				JOptionPane.showMessageDialog(null, "O Usuario não consta cadastrado ou esta inativo !");
+			}	
+			
+		}
 	}
 }
