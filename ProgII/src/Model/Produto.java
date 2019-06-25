@@ -2,14 +2,23 @@ package Model;
 
 import java.awt.image.BufferedImage;
 
-public class Produto
-{
+public class Produto{
+	
+	public static final String PRODUTO_COD   ="idProduto";
+	public static final String PRODUTO_NOME  ="nomeProduto";
+	public static final String PRODUTO_DESC  ="descricaoproduto";
+	public static final String PRODUTO_PRECO ="precoVenda";
+	public static final String PRODUTO_SALDO ="estoque";
+	public static final String PRODUTO_CATEG ="categoria";
+	public static final String PRODUTO_MARCA ="marca";
+	public static final String PRODUTO_IMAGEM ="imagem";
+	
+	
 	private int idProduto;
 	private String nomeProduto;
 	private String descricaoProduto;
-	private double precoVenda;
+	private float precoVenda;
 	private int estoque;
-	private int estoqueMin;
 	private Categoria categoria;
 	private Marca marca;
 	private BufferedImage imagem;
@@ -43,7 +52,7 @@ public class Produto
 	{
 		return precoVenda;
 	}
-	public void setPrecoVenda(double precoVenda)
+	public void setPrecoVenda(float precoVenda)
 	{
 		this.precoVenda = precoVenda;
 	}
@@ -55,14 +64,7 @@ public class Produto
 	{
 		this.estoque = estoque;
 	}
-	public int getEstoqueMin()
-	{
-		return estoqueMin;
-	}
-	public void setEstoqueMin(int estoqueMin)
-	{
-		this.estoqueMin = estoqueMin;
-	}
+	
 	public Categoria getCategoria()
 	{
 		return categoria;

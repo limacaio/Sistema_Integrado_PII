@@ -1,7 +1,11 @@
 package Model;
 
-public class Categoria
-{
+public class Categoria{
+	
+	public static final String CATEGORIA_COD = "idCategoria";
+	public static final String CATEGORIA_DESC = "descricao";
+	
+	
 	private int idCategoria;
 	private String descricao;
 	

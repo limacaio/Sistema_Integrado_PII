@@ -9,11 +9,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.border.SoftBevelBorder;
+import javax.swing.border.BevelBorder;
 
 public class CadMarca extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtDescCateg;
+	private JTextField txtDescMarca;
 
 	/**
 	 * Launch the application.
@@ -37,36 +39,50 @@ public class CadMarca extends JFrame {
 	public CadMarca() {
 		setTitle("Marca");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 541, 184);
+		setBounds(100, 100, 582, 184);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblDescrioCategoria = new JLabel("Descri\u00E7\u00E3o Marca");
-		lblDescrioCategoria.setBounds(10, 25, 131, 14);
-		contentPane.add(lblDescrioCategoria);
+		txtDescMarca = new JTextField();
+		txtDescMarca.setColumns(10);
+		txtDescMarca.setBounds(10, 50, 278, 20);
+		contentPane.add(txtDescMarca);
 		
-		txtDescCateg = new JTextField();
-		txtDescCateg.setBounds(10, 50, 278, 20);
-		contentPane.add(txtDescCateg);
-		txtDescCateg.setColumns(10);
+		JLabel lblDescrioMarca = new JLabel("Descri\u00E7\u00E3o Marca");
+		lblDescrioMarca.setBounds(10, 25, 131, 14);
+		contentPane.add(lblDescrioMarca);
 		
-		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(92, 110, 89, 23);
-		contentPane.add(btnSalvar);
+		JButton btnNovo = new JButton("Novo");
+		btnNovo.setBounds(359, 21, 89, 23);
+		contentPane.add(btnNovo);
 		
-		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(220, 110, 89, 23);
-		contentPane.add(btnEditar);
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setBounds(359, 55, 89, 23);
+		contentPane.add(btnAlterar);
+		
+		JButton btnVisualizar = new JButton("Visualizar");
+		btnVisualizar.setBounds(411, 93, 89, 23);
+		contentPane.add(btnVisualizar);
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(343, 110, 89, 23);
+		btnExcluir.setBounds(458, 55, 89, 23);
 		contentPane.add(btnExcluir);
 		
-		JButton btnNova = new JButton("Nova");
-		btnNova.setBounds(343, 49, 89, 23);
-		contentPane.add(btnNova);
+		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.setBounds(458, 21, 89, 23);
+		contentPane.add(btnSalvar);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel.setBounds(0, 11, 325, 123);
+		contentPane.add(panel);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new SoftBevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_1.setBounds(340, 11, 216, 123);
+		contentPane.add(panel_1);
 	}
 	
 	

@@ -92,12 +92,36 @@ public class Menu extends JFrame {
 		menuBar.add(mnCadastro);
 		
 		JMenuItem mntmProduto = new JMenuItem("Produto");
+		mntmProduto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				CadProduto cadProduto = new CadProduto();
+				cadProduto.setVisible(true);
+				cadProduto.setLocationRelativeTo(null);
+			}
+		});
 		mnCadastro.add(mntmProduto);
 		
 		JMenuItem mntmCategoria = new JMenuItem("Categoria");
+		mntmCategoria.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				CadCategoria cadCategoria = new CadCategoria();
+				cadCategoria.setVisible(true);
+				cadCategoria.setLocationRelativeTo(null);
+			}
+		});
 		mnCadastro.add(mntmCategoria);
 		
 		JMenuItem mntmMarca = new JMenuItem("Marca");
+		mntmMarca.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				CadMarca cadMarca= new CadMarca();
+				cadMarca.setVisible(true);
+				cadMarca.setLocationRelativeTo(null);
+			}
+		});
 		mnCadastro.add(mntmMarca);
 		
 		mnUsuario = new JMenu("Usuario");
