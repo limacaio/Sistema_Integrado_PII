@@ -29,8 +29,7 @@ public class ProdutoController {
 
 	        ProdutoDAO produtoDAO = new ProdutoDAO();
 
-	        // List<Produto> produtoLista = new ArrayList<>();         
-	        // produtoLista = produtoDAO.buscarProdutosDAO();
+	
 	        return produtoDAO.buscarProdutosDAO();
 
 	    }
