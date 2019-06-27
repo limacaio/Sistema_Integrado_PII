@@ -3,7 +3,7 @@
 /**************USUARIO ***************************************************************/
 CREATE TABLE usuario (
 
-codigo integer NOT NULL,
+codigo integer NOT NULL PRIMARY KEY,
 nome  varchar(45) NOT NULL,
 email varchar(45) NOT NULL,
 senha varchar(45) DEFAULT NULL,
@@ -109,3 +109,7 @@ descricao varchar (45) NOT NULL );
 
 /**************************************************************************************************/
 
+INSERT INTO usuario (codigo, nome, email, senha, tipo, situacao) VALUES
+(39, 'q1', 'q1', 'q1', 'comum', NULL),
+(40, 'q2', 'q2', 'q2', 'administrador', NULL),
+(41, 'q3', 'q3', 'q3', 'relatista', NULL);
