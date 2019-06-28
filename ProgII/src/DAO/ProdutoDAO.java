@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
+
 import Model.Produto;
 
 public class ProdutoDAO {
@@ -33,7 +33,7 @@ public class ProdutoDAO {
             stmt.setString(2, produto.getDescricaoProduto());
             stmt.setFloat(3, (float) produto.getPrecoVenda());
             stmt.setFloat(4, (float) produto.getEstoque());
-            //setar imagem
+            stmt.setString(5,produto.getImagem());
             stmt.setInt(6, produto.getMarca().getIdMarca());
             stmt.setInt(7, produto.getCategoria().getIdCategoria());
             stmt.executeUpdate();
@@ -75,7 +75,7 @@ public class ProdutoDAO {
                 //VOU PEGAR A ID OU A DESCRICÃO DE CATEGORIA E MARCA ????
                 produto.getCategoria().setDescricao(rs.getString(Produto.PRODUTO_CATEG));
                 produto.getMarca().setDescricaoMarca(rs.getString(Produto.PRODUTO_MARCA));
-                //AQUI VAI A  A IMAGEM 
+                produto.setImagem(rs.getString(Produto.PRODUTO_IMAGEM));
                 
                 produtoLista.add(produto);
 

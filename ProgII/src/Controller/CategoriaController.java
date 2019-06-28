@@ -1,11 +1,11 @@
 package Controller;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JOptionPane;
-import Model.Categoria;
+
 import DAO.CategoriaDAO;
+import Model.Categoria;
 
 //CAIO LIMA
 
@@ -20,12 +20,10 @@ public class CategoriaController {
 
         if (categoriaDAO.inserirCategoriaDAO(categoria)) {
 
-            System.out.println("Controller: Categoria inserida com sucesso: inserirCategoriaController");
-
-            JOptionPane.showMessageDialog(null, "Categoria inserida com sucesso: inserirCategoriaController");
+            JOptionPane.showMessageDialog(null, "CATEGORIA CADASTRADA !!.");
 
         } else {
-            System.err.println("Controller: Erro no Teste de insercao: inserirCategoriaController");
+            System.err.println("ERRO AO CADASTRAR CATEGORIA");
         }
     }
 
@@ -42,10 +40,10 @@ public class CategoriaController {
 
         if (categoriaDAO.excluirCategoriaDAO(categoria)) {
 
-            System.out.println("Controller: Categoria EXCLUIDA com sucesso: excluirCategoriaController");
+            JOptionPane.showMessageDialog(null, "CATEGORIA EXCLUIDA.");
 
         } else {
-            System.err.println("Controller: Erro na EXCLUSAO: excluirCategoriaController");
+        	JOptionPane.showMessageDialog(null, "ERRO AO EXCLUIR CATEGORIA");
         }
     }
 

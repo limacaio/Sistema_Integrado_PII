@@ -1,9 +1,11 @@
 package Controller;
 
 import java.util.List;
+
 import javax.swing.JOptionPane;
-import Model.Produto;
+
 import DAO.ProdutoDAO;
+import Model.Produto;
 
 public class ProdutoController {
 	
@@ -29,7 +31,8 @@ public class ProdutoController {
 
 	        ProdutoDAO produtoDAO = new ProdutoDAO();
 
-	
+	        // List<Produto> produtoLista = new ArrayList<>();         
+	        // produtoLista = produtoDAO.buscarProdutosDAO();
 	        return produtoDAO.buscarProdutosDAO();
 
 	    }
@@ -60,5 +63,4 @@ public class ProdutoController {
 	        }
 	    }
 
-	
 }

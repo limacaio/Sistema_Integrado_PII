@@ -1,7 +1,5 @@
 package Model;
 
-import java.awt.image.BufferedImage;
-
 public class Produto{
 	
 	public static final String PRODUTO_COD   ="idProduto";
@@ -21,7 +19,7 @@ public class Produto{
 	private int estoque;
 	private Categoria categoria;
 	private Marca marca;
-	private BufferedImage imagem;
+	private String imagem;
 	
 	
 	public int getIdProduto()
@@ -81,11 +79,11 @@ public class Produto{
 	{
 		this.marca = marca;
 	}
-	public BufferedImage getImagem()
+	public String getImagem()
 	{
 		return imagem;
 	}
-	public void setImagem(BufferedImage imagem)
+	public void setImagem(String imagem)
 	{
 		this.imagem = imagem;
 	}

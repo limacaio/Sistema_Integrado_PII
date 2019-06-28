@@ -3,7 +3,7 @@ package Model;
 public class Marca{
 	
 	public static final String MARCA_ID = "idMarca";
-    public static final String MARCA_DESC = "descricaoMarca";
+    public static final String MARCA_DESC = "descricao";
 	
 	private int idMarca;
 	private String descricaoMarca;

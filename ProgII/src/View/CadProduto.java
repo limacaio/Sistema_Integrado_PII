@@ -1,26 +1,24 @@
 package View;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.TitledBorder;
-import javax.swing.UIManager;
 import java.awt.Color;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
-import java.awt.TextArea;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JEditorPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class CadProduto extends JFrame {
 
@@ -30,7 +28,10 @@ public class CadProduto extends JFrame {
 	private JTextField txtDescProd;
 	private JTextField txtSaldoEstoque;
 	private JTable tableProduto;
-	private JTextField textField;
+	private JTextField txtImagem;
+	private String modo;
+	private JButton btnNovo;
+	private JButton btnSalvar;
 
 	/**
 	 * Launch the application.
@@ -124,25 +125,55 @@ public class CadProduto extends JFrame {
 		txtSaldoEstoque.setColumns(10);
 		
 		JButton btnSalvar = new JButton("Salvar");
-		btnSalvar.setBounds(454, 194, 89, 23);
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modo = "Salvar";
+			}
+		});
+		btnSalvar.setBounds(671, 139, 89, 23);
 		panel.add(btnSalvar);
+		btnSalvar.setEnabled(false);
 		
 		JButton btnEditar = new JButton("Editar");
-		btnEditar.setBounds(572, 194, 89, 23);
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEditar.setBounds(572, 173, 89, 23);
 		panel.add(btnEditar);
 		
 		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(690, 194, 89, 23);
+		btnExcluir.setBounds(671, 173, 89, 23);
 		panel.add(btnExcluir);
 		
 		JLabel lblImagem = new JLabel("Imagem");
 		lblImagem.setBounds(10, 115, 46, 14);
 		panel.add(lblImagem);
 		
-		textField = new JTextField();
-		textField.setBounds(10, 130, 86, 87);
-		panel.add(textField);
-		textField.setColumns(10);
+		txtImagem = new JTextField();
+		txtImagem.setColumns(10);
+		txtImagem.setBounds(10, 140, 311, 20);
+		panel.add(txtImagem);
+		
+		JButton btnProcurar = new JButton("Procurar");
+		btnProcurar.setBounds(327, 139, 89, 23);
+		panel.add(btnProcurar);
+		
+		JButton btnNovo = new JButton("Novo");
+		btnNovo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				modo = "novo";
+				manipulaView();
+			}
+		});
+		btnNovo.setBounds(572, 139, 89, 23);
+		panel.add(btnNovo);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		panel_1.setBounds(557, 126, 222, 91);
+		panel.add(panel_1);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 275, 789, 245);
@@ -167,5 +198,42 @@ public class CadProduto extends JFrame {
 		scrollPane.setViewportView(tableProduto);
 		
 		dispose();
+	}
+	
+	public void limpaCampo() {
+		txtNomeProd.setText("");
+		txtDescProd.setText("");
+		txtValVenda.setText("");
+		txtSaldoEstoque.setText("");
+		txtImagem.setText("");
+	}
+	
+	public void manipulaView() {
+		switch(modo) {
+		case "novo":
+			txtNomeProd.setEnabled(true);
+			txtDescProd.setEnabled(true);
+			txtValVenda.setEnabled(true);
+			txtSaldoEstoque.setEnabled(true);
+			txtImagem.setEnabled(true);
+			btnSalvar.setEnabled(true);
+			btnNovo.setEnabled(false);
+			
+			
+			break;
+			
+		case "salvar":
+			txtNomeProd.setEnabled(false);
+			txtDescProd.setEnabled(false);
+			txtValVenda.setEnabled(false);
+			txtSaldoEstoque.setEnabled(false);
+			txtImagem.setEnabled(false);
+			btnSalvar.setEnabled(false);
+			btnNovo.setEnabled(true);
+			
+			
+		
+			
+		}
 	}
 }

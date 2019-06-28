@@ -1,36 +1,29 @@
 package View;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.SoftBevelBorder;
 import javax.swing.border.TitledBorder;
 
 import Controller.UsuarioController;
 import Model.Usuario;
-import View.GerUsuario;
-
-
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JComboBox;
-import java.awt.Dialog.ModalExclusionType;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.border.BevelBorder;
-import javax.swing.JDesktopPane;
-import javax.swing.border.SoftBevelBorder;
-import javax.swing.UIManager;
-import java.awt.Color;
 
 public class CadUsuario extends JFrame {
 
@@ -439,4 +432,5 @@ public class CadUsuario extends JFrame {
 			
 		}
 	}
+	
 }

@@ -1,13 +1,11 @@
 package Controller;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.JOptionPane;
-import Model.Categoria;
-import Model.Marca;
-import DAO.CategoriaDAO;
+
 import DAO.MarcaDAO;
+import Model.Marca;
 
 //CAIO LIMA
 
@@ -23,12 +21,10 @@ public class MarcaController {
 
         if (marcaDAO.inserirMarcaDAO(marca)) {
 
-            System.out.println("Controller: Marca inserida com sucesso: inserirMarcaController");
-
-            JOptionPane.showMessageDialog(null, "Marca inserida com sucesso: inserirMarcaController");
+            JOptionPane.showMessageDialog(null, "MARCA CADASTRADA !!");
 
         } else {
-            System.err.println("Controller: Erro no Teste de insercao: inserirMarcaController");
+        	JOptionPane.showMessageDialog(null, "ERRO AO CADASTRAR MARCA!!");
         }
     }
 
@@ -45,10 +41,11 @@ public class MarcaController {
 
         if (marcaDAO.excluirMarcaDAO(marca)) {
 
-            System.out.println("Controller: Marca EXCLUIDA com sucesso: excluirMarcaController");
-
+        	JOptionPane.showMessageDialog(null, "MARCA EXCLUIDA!!");
+        	
         } else {
-            System.err.println("Controller: Erro na EXCLUSAO: excluirMarcaController");
+        	
+        	JOptionPane.showMessageDialog(null, "ERRO AO EXCLUIR!!");
         }
     }
 
@@ -58,10 +55,10 @@ public class MarcaController {
 
         if (marcaDAO.atualizarMarcaDAO(marca)) {
 
-            System.out.println("Controller: Marca ATUALIZADA com sucesso: atualizarMarcaController");
+        	JOptionPane.showMessageDialog(null, "MARCA ATUALIZADA!!");
 
         } else {
-            System.err.println("Controller: Erro na ATUALIZACAO: atualizarMarcaController");
+        	JOptionPane.showMessageDialog(null, "ERRO AO ATUALZIAR MARCA !!");
         }
     }
 	
