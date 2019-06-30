@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 	/* Search */
 //	$('#search input[name=\'search\']').parent().find('button').on('click', function() {
-//		url ='category.html';
+//		url ='index.php';
 //
 //		var value = $('header input[name=\'search\']').val();
 //
