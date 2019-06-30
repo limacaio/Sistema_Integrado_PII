@@ -47,7 +47,7 @@ public class UsuarioController {
 		return usuarioDAO.buscarUsuarioDAO();
 	}
 	
-public void atualizarUsuarioController(Usuario usuario){
+	public void atualizarUsuarioController(Usuario usuario){
         
         UsuarioDAO UsuarioDAO = new UsuarioDAO();
         
@@ -57,4 +57,15 @@ public void atualizarUsuarioController(Usuario usuario){
             System.out.println("Controller: Erro na ATUALIZAÇÃO: atualizarCategriaController");
         }
     }
+
+	public void atualizaUsuarioSituacaoController(Usuario usuario) {
+		UsuarioDAO usuarioDAO = new UsuarioDAO();
+		
+		if(usuarioDAO.atualizarSituacaoDAO(usuario)) {
+			System.out.println("AtualizaDO COM SUCESSO");
+		}else {
+			System.out.println("Erro na atualização");
+		}
+		
+	}
 }

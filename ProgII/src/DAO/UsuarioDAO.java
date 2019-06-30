@@ -122,7 +122,7 @@ public class UsuarioDAO {
 	
 	
 	public boolean atualizarUsuarioDAO(Usuario usuario) {
-		String sql = "updade usuario set senha = ? where idUsuario = ? ";
+		String sql = "update usuario set senha = ? where idUsuario = ? ";
 		PreparedStatement stmt = null;
 		
 		try {
@@ -190,7 +190,7 @@ public class UsuarioDAO {
 	
 	public ArrayList<Usuario> buscarUsuarioDAO(){
 		
-		String sql = "SELECT * FROM usuario ORDER BY IdUsuario ";
+		String sql = "SELECT * FROM usuario  ORDER BY IdUsuario ";
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		ArrayList<Usuario> usuarioList = new ArrayList<>();
@@ -208,6 +208,7 @@ public class UsuarioDAO {
 				usuario.setSenha(rs.getString(usuario.USUARIO_SENHA));
 				//usuario.setAdministrador(rs.(usuario.getAdministrador()));
 				usuario.setTipo(rs.getString(usuario.USUARIO_TIPO));
+				usuario.setSituacao(rs.getBoolean(usuario.USUARIO_SITUACAO));
 				usuarioList.add(usuario);
 			}
 		} catch (SQLException ex) {
@@ -217,6 +218,27 @@ public class UsuarioDAO {
 		}
 		return usuarioList;
 		
+	}
+	
+	
+	public boolean atualizarSituacaoDAO(Usuario usuario) {
+		String sql = "update usuario set situacao = ? where idUsuario = ? ";
+		PreparedStatement stmt = null;
+		
+		try {
+			stmt = con.prepareStatement(sql);
+			stmt.setBoolean(1, usuario.getSituacao());
+			stmt.setInt(2, usuario.getIdUsuario());
+			stmt.executeUpdate();
+			
+			return true;
+			
+		} catch (SQLException ex) {
+			System.out.println("Erro na atualizaçãoDAO" + ex);
+			return false;
+		}finally {
+			ConnectionDB.closeConnection(con, stmt);
+		}
 	}
 	
 
