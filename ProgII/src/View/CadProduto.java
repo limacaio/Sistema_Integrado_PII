@@ -5,9 +5,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -22,14 +20,6 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
-
-import Controller.CategoriaController;
-import Controller.MarcaController;
-import Controller.ProdutoController;
-import Model.Categoria;
-import Model.Marca;
-import Model.Produto;
-
 public class CadProduto extends JFrame {
 
 	private JPanel contentPane;
@@ -37,12 +27,11 @@ public class CadProduto extends JFrame {
 	private JTextField txtValVenda;
 	private JTextField txtDescProd;
 	private JTextField txtSaldoEstoque;
+	private JTable tableProduto;
 	private JTextField txtImagem;
 	private String modo;
 	private JButton btnNovo;
 	private JButton btnSalvar;
-	private JComboBox cbCategoria;
-	private JTextField txtUnidMedida;
 
 	/**
 	 * Launch the application.
@@ -63,13 +52,10 @@ public class CadProduto extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	
-
-
 	public CadProduto() {
 		setTitle("Cadastro Produto");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 825, 395);
+		setBounds(100, 100, 825, 570);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -82,7 +68,7 @@ public class CadProduto extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Produto", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(10, 36, 789, 314);
+		panel.setBounds(10, 36, 789, 228);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
@@ -95,27 +81,20 @@ public class CadProduto extends JFrame {
 		panel.add(txtNomeProd);
 		txtNomeProd.setColumns(10);
 		
-		JLabel lblValorVenda = new JLabel("Pre\u00E7o Venda");
-		lblValorVenda.setBounds(341, 25, 86, 14);
+		JLabel lblValorVenda = new JLabel("Valor Venda");
+		lblValorVenda.setBounds(368, 25, 86, 14);
 		panel.add(lblValorVenda);
 		
 		txtValVenda = new JTextField();
-		txtValVenda.setBounds(341, 39, 65, 20);
+		txtValVenda.setBounds(368, 39, 86, 20);
 		panel.add(txtValVenda);
 		txtValVenda.setColumns(10);
 		
 		JLabel lblCategoria = new JLabel("Categoria");
 		lblCategoria.setBounds(587, 25, 74, 14);
 		panel.add(lblCategoria);
-		//===============================================================================
-		//PREENCHENDO O COMBO BOX
-		JComboBox cbCategoria = new JComboBox();
-		cbCategoria.addItem("");
-		CategoriaController catControl = new CategoriaController();
 		
-		for(Categoria categoria: catControl.buscarCategoriasController()) {
-			cbCategoria.addItem(categoria);
-		}
+		JComboBox cbCategoria = new JComboBox();
 		cbCategoria.setBounds(587, 39, 192, 20);
 		panel.add(cbCategoria);
 		
@@ -133,27 +112,42 @@ public class CadProduto extends JFrame {
 		panel.add(lblMarca);
 		
 		JComboBox cbMarca = new JComboBox();
-		cbMarca.addItem("");
-		MarcaController marcaControl = new MarcaController();
-		
-		for(Marca marca: marcaControl.buscarMarcaController()) {
-			cbMarca.addItem(marca);
-		}
 		cbMarca.setBounds(587, 84, 192, 20);
 		panel.add(cbMarca);
 		
-		JLabel lblEstoque = new JLabel("Saldo");
-		lblEstoque.setBounds(488, 70, 86, 14);
+		JLabel lblEstoque = new JLabel("Saldo Estoque");
+		lblEstoque.setBounds(479, 25, 86, 14);
 		panel.add(lblEstoque);
 		
 		txtSaldoEstoque = new JTextField();
-		txtSaldoEstoque.setBounds(488, 84, 51, 20);
+		txtSaldoEstoque.setBounds(479, 39, 86, 20);
 		panel.add(txtSaldoEstoque);
 		txtSaldoEstoque.setColumns(10);
-		;
+		
+		JButton btnSalvar = new JButton("Salvar");
+		btnSalvar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				modo = "Salvar";
+			}
+		});
+		btnSalvar.setBounds(671, 139, 89, 23);
+		panel.add(btnSalvar);
+		btnSalvar.setEnabled(false);
+		
+		JButton btnEditar = new JButton("Editar");
+		btnEditar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnEditar.setBounds(572, 173, 89, 23);
+		panel.add(btnEditar);
+		
+		JButton btnExcluir = new JButton("Excluir");
+		btnExcluir.setBounds(671, 173, 89, 23);
+		panel.add(btnExcluir);
 		
 		JLabel lblImagem = new JLabel("Imagem");
-		lblImagem.setBounds(10, 126, 46, 14);
+		lblImagem.setBounds(10, 115, 46, 14);
 		panel.add(lblImagem);
 		
 		txtImagem = new JTextField();
@@ -165,88 +159,81 @@ public class CadProduto extends JFrame {
 		btnProcurar.setBounds(327, 139, 89, 23);
 		panel.add(btnProcurar);
 		
+		JButton btnNovo = new JButton("Novo");
+		btnNovo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				modo = "novo";
+				manipulaView();
+			}
+		});
+		btnNovo.setBounds(572, 139, 89, 23);
+		panel.add(btnNovo);
+		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
-		panel_1.setBounds(557, 126, 222, 177);
+		panel_1.setBounds(557, 126, 222, 91);
 		panel.add(panel_1);
-		panel_1.setLayout(null);
 		
-		JButton btnSalvar_1 = new JButton("Salvar");
-		btnSalvar_1.setBounds(10, 11, 94, 23);
-		panel_1.add(btnSalvar_1);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(10, 275, 789, 245);
+		contentPane.add(scrollPane);
 		
-		JButton btnVisualizar = new JButton("Visualizar");
-		btnVisualizar.setBounds(118, 11, 94, 23);
-		panel_1.add(btnVisualizar);
-		
-		JButton btnExcluir = new JButton("Excluir");
-		btnExcluir.setBounds(10, 57, 89, 23);
-		panel_1.add(btnExcluir);
-		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(118, 57, 94, 23);
-		panel_1.add(btnCancelar);
-		
-		JLabel lblUm = new JLabel("U.M");
-		lblUm.setBounds(453, 25, 35, 14);
-		panel.add(lblUm);
-		
-		txtUnidMedida = new JTextField();
-		txtUnidMedida.setColumns(10);
-		txtUnidMedida.setBounds(453, 39, 46, 20);
-		panel.add(txtUnidMedida);
-		btnVisualizar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				GerProduto gerProduto = new GerProduto();
-				gerProduto.setVisible(true);
-				gerProduto.setLocationRelativeTo(null);
-				gerProduto.atualizarTabelaProduto();
+		tableProduto = new JTable();
+		tableProduto.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		tableProduto.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Produto", "Categoria", "Marca", "Pre\u00E7o", "Saldo Estoque"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, String.class, Float.class, Object.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
 			}
 		});
-		btnSalvar_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				Produto produto = new Produto();
-				Categoria categ = new Categoria();
-				Marca marca = new Marca();
-		
-				
-				
-		        ProdutoController produtoController = new ProdutoController();
-		        //pegando o que foi inserido
-		        
-		        produto.setNomeProduto(txtNomeProd.getText());
-		        produto.setDescricaoProduto(txtDescProd.getText());
-		        produto.setImagem(txtImagem.getText());
-		        produto.setPrecoVenda(Float.parseFloat(txtValVenda.getText()));
-		        produto.setEstoque(Integer.parseInt (txtSaldoEstoque.getText()));
-		        produto.setUnidadeMedida(txtUnidMedida.getText());
-		        //LEITURA COMBO BOX
-		        categ = (Categoria) cbCategoria.getSelectedItem();
-		        produto.setCategoria(categ);
-		        
-		        marca = (Marca) cbMarca.getSelectedItem();
-		        produto.setMarca(marca);
-		        	
-		        produtoController.inserirProdutoController(produto);  
-		      
-		        txtNomeProd.setText("");
-		        txtDescProd.setText("");
-		        cbCategoria.addItem("");
-		        cbMarca.addItem("");
-		        txtValVenda.setText("");
-		        txtSaldoEstoque.setText("");
-		        txtUnidMedida.setText("");
-		        
-				
-			}
-		});
+		scrollPane.setViewportView(tableProduto);
 		
 		dispose();
-		this.setLocationRelativeTo(null);
 	}
 	
+	public void limpaCampo() {
+		txtNomeProd.setText("");
+		txtDescProd.setText("");
+		txtValVenda.setText("");
+		txtSaldoEstoque.setText("");
+		txtImagem.setText("");
+	}
 	
-
+	public void manipulaView() {
+		switch(modo) {
+		case "novo":
+			txtNomeProd.setEnabled(true);
+			txtDescProd.setEnabled(true);
+			txtValVenda.setEnabled(true);
+			txtSaldoEstoque.setEnabled(true);
+			txtImagem.setEnabled(true);
+			btnSalvar.setEnabled(true);
+			btnNovo.setEnabled(false);
+			
+			
+			break;
+			
+		case "salvar":
+			txtNomeProd.setEnabled(false);
+			txtDescProd.setEnabled(false);
+			txtValVenda.setEnabled(false);
+			txtSaldoEstoque.setEnabled(false);
+			txtImagem.setEnabled(false);
+			btnSalvar.setEnabled(false);
+			btnNovo.setEnabled(true);
+			
+			
+		
+			
+		}
+	}
 }

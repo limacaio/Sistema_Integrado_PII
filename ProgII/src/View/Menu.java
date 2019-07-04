@@ -150,6 +150,27 @@ public class Menu extends JFrame {
 		});
 		mnUsuario.add(mntmNewMenuItem_1);
 		
+		JMenuItem mntmNewMenuItem_3 = new JMenuItem("Plano de Senha");
+		mntmNewMenuItem_3.addActionListener(new ActionListener() {
+			
+			/***
+			 * 
+			 * 
+			 * Plano de senha 
+			 * winston
+			 * 
+			 */
+			
+			public void actionPerformed(ActionEvent arg0) {
+				
+				CadPlanoDeSenha cadPlanoDeSenha = new CadPlanoDeSenha();
+				cadPlanoDeSenha.setVisible(true);
+				cadPlanoDeSenha.setLocationRelativeTo(null);
+				
+			}
+		});
+		mnUsuario.add(mntmNewMenuItem_3);
+		
 		mnClientes = new JMenu("Clientes");
 		menuBar.add(mnClientes);
 		

@@ -116,11 +116,6 @@ public class CadUsuario extends JFrame {
 		panel_2.add(btnVisualizar);
 		btnVisualizar.setVerticalAlignment(SwingConstants.BOTTOM);
 		
-		JCheckBox chcDesativar = new JCheckBox("Desativar");
-		chcDesativar.setEnabled(false);
-		chcDesativar.setBounds(10, 184, 97, 23);
-		panel_2.add(chcDesativar);
-		
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.setEnabled(false);
 		btnAlterar.setBounds(10, 143, 97, 23);
