@@ -22,7 +22,7 @@ public class Usuario {
 	private String senha;
 	private String tipo;
 	//private Boolean administrador;
-	private Boolean situacao;
+	private int situacao;
 	
 	
 	public Usuario () {
@@ -38,11 +38,11 @@ public class Usuario {
 		
 	}
 	
-	public Boolean getSituacao(){
+	public int getSituacao(){
 		return situacao;
 	}
 
-	public void setSituacao(Boolean situacao) {
+	public void setSituacao(int situacao) {
 		this.situacao = situacao;
 	}
 

@@ -24,5 +24,11 @@ public class Marca{
 		this.descricaoMarca = descricaoMarca;
 	}
 
+	@Override
+	public String toString() {
+		return descricaoMarca;
+	}
+	
+	
 	
 }

@@ -3,20 +3,22 @@ package Model;
 public class Produto{
 	
 	public static final String PRODUTO_COD   ="idProduto";
-	public static final String PRODUTO_NOME  ="nomeProduto";
-	public static final String PRODUTO_DESC  ="descricaoproduto";
-	public static final String PRODUTO_PRECO ="precoVenda";
-	public static final String PRODUTO_SALDO ="estoque";
-	public static final String PRODUTO_CATEG ="categoria";
-	public static final String PRODUTO_MARCA ="marca";
+	public static final String PRODUTO_NOME  ="nome";
+	public static final String PRODUTO_DESC  ="descricao";
+	public static final String PRODUTO_PRECO ="valor";
+	public static final String PRODUTO_SALDO ="saldo";
+	public static final String PRODUTO_CATEG ="idCategoria";
+	public static final String PRODUTO_MARCA ="idMarca";
 	public static final String PRODUTO_IMAGEM ="imagem";
+	public static final String PRODUTO_U_M = "unidadeMedida";
 	
 	
 	private int idProduto;
 	private String nomeProduto;
 	private String descricaoProduto;
 	private float precoVenda;
-	private int estoque;
+	private float estoque;
+	private String unidadeMedida;
 	private Categoria categoria;
 	private Marca marca;
 	private String imagem;
@@ -54,11 +56,11 @@ public class Produto{
 	{
 		this.precoVenda = precoVenda;
 	}
-	public int getEstoque()
+	public float getEstoque()
 	{
 		return estoque;
 	}
-	public void setEstoque(int estoque)
+	public void setEstoque(float estoque)
 	{
 		this.estoque = estoque;
 	}
@@ -87,6 +89,15 @@ public class Produto{
 	{
 		this.imagem = imagem;
 	}
+	public String getUnidadeMedida() {
+		return unidadeMedida;
+	}
+	public void setUnidadeMedida(String unidadeMedida) {
+		this.unidadeMedida = unidadeMedida;
+	}
+	
+	
+	
 	
 	
 }

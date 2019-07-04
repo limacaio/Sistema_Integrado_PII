@@ -28,6 +28,11 @@ public class Categoria{
 	{
 		this.descricao = descricao;
 	}
+
+	@Override
+	public String toString() {
+		return descricao ;
+	}
 	
 	
 }
