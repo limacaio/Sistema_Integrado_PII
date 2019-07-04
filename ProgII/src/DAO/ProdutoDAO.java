@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.Categoria;
-import Model.Marca;
 import Model.Produto;
 
 public class ProdutoDAO {
@@ -26,8 +24,8 @@ public class ProdutoDAO {
     
     public boolean inserirProdutoDAO(Produto produto) {
 
-        String sql = "INSERT INTO produto (nome, descricao, valor, saldo,unidadeMedida, imagem, idMarca, idCategoria) "
-        		   + "values (?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO produto (nome, descricao, valor, saldo, imagem, idMarca, idCategoria) "
+        		   + "values (?,?,?,?,?,?,?)";
         PreparedStatement stmt = null;
         try {
             stmt = con.prepareStatement(sql);
@@ -35,10 +33,9 @@ public class ProdutoDAO {
             stmt.setString(2, produto.getDescricaoProduto());
             stmt.setFloat(3, (float) produto.getPrecoVenda());
             stmt.setFloat(4, (float) produto.getEstoque());
-            stmt.setString(5,produto.getUnidadeMedida());
-            stmt.setString(6,produto.getImagem());
-            stmt.setInt(7, produto.getMarca().getIdMarca());
-            stmt.setInt(8, produto.getCategoria().getIdCategoria());
+            stmt.setString(5,produto.getImagem());
+            stmt.setInt(6, produto.getMarca().getIdMarca());
+            stmt.setInt(7, produto.getCategoria().getIdCategoria());
             stmt.executeUpdate();
             
             return true;
@@ -75,16 +72,9 @@ public class ProdutoDAO {
                 produto.setDescricaoProduto(rs.getString(Produto.PRODUTO_DESC));
                 produto.setPrecoVenda(rs.getFloat(Produto.PRODUTO_PRECO));
                 produto.setEstoque(rs.getInt(Produto.PRODUTO_SALDO));
-                produto.setUnidadeMedida(rs.getString(Produto.PRODUTO_U_M));
-                
-                Categoria categoria = new Categoria();
-                categoria.setDescricao(rs.getString(Categoria.CATEGORIA_DESC));
-                produto.setCategoria(categoria);
-                
-                Marca marca = new Marca();
-                marca.setDescricaoMarca(rs.getString(Marca.MARCA_DESC));
-                produto.setMarca(marca);
-                
+                //VOU PEGAR A ID OU A DESCRICÃO DE CATEGORIA E MARCA ????
+                produto.getCategoria().setDescricao(rs.getString(Produto.PRODUTO_CATEG));
+                produto.getMarca().setDescricaoMarca(rs.getString(Produto.PRODUTO_MARCA));
                 produto.setImagem(rs.getString(Produto.PRODUTO_IMAGEM));
                 
                 produtoLista.add(produto);
