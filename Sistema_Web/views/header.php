@@ -19,10 +19,8 @@ if (isset($_SESSION['user'])){
                 <div class="top-right pull-right">
                     <div id="top-links" class="nav pull-right">
                         <ul class="list-inline">
-                            <li class="dropdown"><a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user" aria-hidden="true"></i><span>My Account</span> <span class="caret"></span></a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="register.html">Register</a></li>
-                                    <li><a href="login.php">Login</a></li>
+                            <li class="dropdown"><a href='login.php?logout=true' title="Sair" ><i class="fa fa-user" aria-hidden="true"></i><span>Sair</span> </a>
+
                                 </ul>
                             </li>
                         </ul>
