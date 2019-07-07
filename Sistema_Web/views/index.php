@@ -4,13 +4,21 @@ require_once "../controllers/MarcaController.php";
 require_once "../controllers/ProdutoController.php";
 
 $listaCategorias = CategoriaController::trazerTodos();
-
+$listaMarcas = null;
 $listaProdutos = null;
-if (isset($_GET['genero'])){
-    //$listaProdutos = ProdutoController::trazerTodosPorGenero($_GET['categoria']);
-}else{
-    //$listaProdutos = ProdutoController::trazerTodos();
+$listaProdutos = ProdutoController::trazerTodos();
+if (isset($_GET['categoria']))
+{
+    $listaProdutos = ProdutoController::trazerTodosPorCategoria($_GET['categoria']);
 }
+if (isset($_GET['marca'],$_GET['categoria']))
+{
+    $listaProdutos = ProdutoController::trazerTodosPorcategoriaEMarca($_GET['categoria'],$_GET['marca']);
+}
+else{
+    $listaProdutos = ProdutoController::trazerTodos();
+}
+
 ?>
 
 
@@ -56,43 +64,43 @@ if (isset($_GET['genero'])){
         <div class="category_block">
           <ul class="box-category treeview">
               <?php
-              foreach ($listaCategorias as $categoria){
-                  echo "<li>
-                <a href=\"index.php?categoria=".$categoria->getIdCategoria()."\"><?php echo (string)$categoria->getDescricao(); ?></a>
-                
-              <ul>
-                <li><a href=\"#\">PC</a></li>
-                <li><a href=\"#\">MAC</a></li>
-              </ul>
-            </li>";
+              foreach ($listaCategorias as $categoria) {
+                  echo '<li>';
+                  echo ' <a href=\"index.php?categoria='.$categoria->getIdCategoria()."\">".$categoria->getDescricao().'</a>';
+                  echo ' <ul>';
+                  $listaMarcas = MarcaController::trazerTodasMarcasPorCategoria($categoria->getIdCategoria());
+                  foreach ($listaMarcas as $marca) {
+                      echo ' <li><a href=\"index.php?categoria='.$categoria->getIdCategoria().'?marca='.$marca->getIdMarca().
+                      "\">".$marca->getDescricao().'</a></li>';
+                  }
+                  echo ' </ul>';
+                  echo '</li>';
               }
+
+
+
               ?>
+
               </ul>
-        
         </div>
       </div>
 
 
     </div>
     <div class=" content col-sm-9">
-      <div class="category-page-wrapper">
 
-
-        <div class="col-md-9 list-grid-wrapper">
-          <div class="btn-group btn-list-grid">
-            <button type="button" id="list-view" class="btn btn-default list" data-toggle="tooltip" title="List"></button>
-            <button type="button" id="grid-view" class="btn btn-default grid" data-toggle="tooltip" title="Grid"></button>
-          </div>
-        </div>
-      </div>
       <br />
       <div class="grid-list-wrapper">
         <div class="product-layout product-list col-xs-12">
-          <div class="product-thumb">
+
+            <!-- lista de produtos -->
+            <?php
+            foreach ($listaProdutos as $produto){
+               ?>
+                <div class="product-thumb">
             <div class="image product-imageblock">
             <a href="product.html">
-            <img src="image/product/Pro-04.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
-            <img src="image/product/Pro-04-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive" />
+            <img src="image/products/<?php echo $produto->getImagem();?>" class="img-responsive" />
             </a>
               <ul class="button-group grid-btn">
 
@@ -102,16 +110,9 @@ if (isset($_GET['genero'])){
               </ul>
             </div>
             <div class="caption product-detail">
-              <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i><i class="fa fa-star fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i><i class="fa fa-star fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i><i class="fa fa-star fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i><i class="fa fa-star fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              <h4 class="product-name"><a href="#" title="Produto Teste">Produto Teste</a></h4>
-              <p class="price product-price">$122.00<span class="price-tax">Ex Tax: $100.00</span></p>
-              <p class="product-desc"> More room to move.
-                
-                With 80GB or 160GB of storage and up to 40 hours of battery life, the new iPod classic lets you enjoy up to 40,000 songs or up to 200 hours of video or any combination wherever you go.
-                
-                Cover Flow.
-                
-                Browse through your music collection by flipping..</p>
+              <h4 class="product-name"><a href="#" title="Produto Teste"><?php echo $produto->getNome();?></a></h4>
+              <p class="price product-price">R$ <?php echo number_format($produto->getValor(),2,',','');?><span class="price-tax"></span></p>
+              <p class="product-desc"><?php echo $produto->getDescricao();?>.</p>
               <ul class="button-group list-btn">
 
                 <li>
@@ -119,7 +120,12 @@ if (isset($_GET['genero'])){
                 </li>
               </ul>
             </div>
-          </div>
+
+
+          </div>";
+
+
+            <?php }  ?>
         </div>
 
       </div>

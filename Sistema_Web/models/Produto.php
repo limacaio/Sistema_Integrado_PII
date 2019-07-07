@@ -32,7 +32,7 @@ class Produto{
     /**
      * @return mixed
      */
-    public function getidProduto()
+    public function getIdProduto()
     {
         return $this->idProduto;
     }
@@ -40,7 +40,7 @@ class Produto{
     /**
      * @param mixed $idProduto
      */
-    public function setidProduto($idProduto)
+    public function setIdProduto($idProduto)
     {
         $this->idProduto = $idProduto;
     }
@@ -48,7 +48,7 @@ class Produto{
     /**
      * @return mixed
      */
-    public function getnome()
+    public function getNome()
     {
         return $this->nome;
     }
@@ -56,7 +56,7 @@ class Produto{
     /**
      * @param mixed $nome
      */
-    public function setnome($nome)
+    public function setNome($nome)
     {
         $this->nome = $nome;
     }
