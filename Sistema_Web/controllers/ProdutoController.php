@@ -96,7 +96,7 @@ class ProdutoController{
     public static function trazerTodosPorcategoriaEMarca($categoria,$marca){
         $sql = "SELECT  p.* from produto p inner join
         categoria c on p.idCategoria = c.idCategoria 
-        inner join marca c on p.idMarca = m.idMarca
+        inner join marca m on p.idMarca = m.idMarca
           where p.idCategoria=:categoria and p.idMarca=:marca ";
         $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
@@ -129,7 +129,9 @@ class ProdutoController{
     }
 
     public static function buscarproduto($id){
-        $sql = "SELECT l.*, g.nome AS categoria, e.nome AS marca FROM produto l INNER JOIN categoria g ON g.id = l.idcategoria INNER JOIN marca e ON e.id = l.idmarca WHERE l.id = :id";
+        $sql = "SELECT p.*, c.descricao, m.descricao  FROM produto p INNER JOIN 
+        categoria c ON p.idCategoria = c.idCategoria 
+        INNER JOIN marca m ON p.idMarca = m.idMarca WHERE p.idProduto = :id";
         $db = Conexao::getInstance();
 
         $stmt = $db->prepare($sql);

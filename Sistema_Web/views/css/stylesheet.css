@@ -967,11 +967,9 @@ footer ul li {
 	text-align: center;
 }
 .product-thumb a img + img {
-	display: none;
+	display: block;
 }
-.product-thumb:hover a img {
-	display: none;
-}
+
 .product-thumb:hover a img + img {
 	display: block;
 }

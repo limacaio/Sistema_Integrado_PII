@@ -52,7 +52,7 @@ class MarcaController
 
     public static function trazerTodasMarcasPorCategoria($idCategoria)
     {
-        $sql = "SELECT  m.* from marca m 
+        $sql = "SELECT  distinct m.* from marca m 
         inner join produto p on p.idMarca = m.idMarca 
         inner join categoria c on c.idCategoria = p.idCategoria
         WHERE p.idCategoria = :idCategoria

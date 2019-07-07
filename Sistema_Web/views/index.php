@@ -11,7 +11,7 @@ if (isset($_GET['categoria']))
 {
     $listaProdutos = ProdutoController::trazerTodosPorCategoria($_GET['categoria']);
 }
-if (isset($_GET['marca'],$_GET['categoria']))
+if (isset($_GET['categoria'])&&isset($_GET['marca']))
 {
     $listaProdutos = ProdutoController::trazerTodosPorcategoriaEMarca($_GET['categoria'],$_GET['marca']);
 }
@@ -25,7 +25,7 @@ else{
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>MoonStore</title>
+<title>IFStore</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="e-commerce site well design with responsive view." />
@@ -66,12 +66,12 @@ else{
               <?php
               foreach ($listaCategorias as $categoria) {
                   echo '<li>';
-                  echo ' <a href=\"index.php?categoria='.$categoria->getIdCategoria()."\">".$categoria->getDescricao().'</a>';
+                  echo ' <a href=\'index.php?categoria='.$categoria->getIdCategoria()."'>".$categoria->getDescricao().'</a>';
                   echo ' <ul>';
                   $listaMarcas = MarcaController::trazerTodasMarcasPorCategoria($categoria->getIdCategoria());
                   foreach ($listaMarcas as $marca) {
-                      echo ' <li><a href=\"index.php?categoria='.$categoria->getIdCategoria().'?marca='.$marca->getIdMarca().
-                      "\">".$marca->getDescricao().'</a></li>';
+                      echo ' <li><a href=\'index.php?categoria='.$categoria->getIdCategoria().'&marca='.$marca->getIdMarca().
+                      "\'>".$marca->getDescricao().'</a></li>';
                   }
                   echo ' </ul>';
                   echo '</li>';
@@ -99,8 +99,8 @@ else{
                ?>
                 <div class="product-thumb">
             <div class="image product-imageblock">
-            <a href="product.html">
-            <img src="image/products/<?php echo $produto->getImagem();?>" class="img-responsive" />
+            <a href="product.php">
+            <img src="image/products/<?php echo $produto->getImagem();?>" class="img-responsive" width="100px" height="200px" />
             </a>
               <ul class="button-group grid-btn">
 
@@ -110,7 +110,11 @@ else{
               </ul>
             </div>
             <div class="caption product-detail">
-              <h4 class="product-name"><a href="#" title="Produto Teste"><?php echo $produto->getNome();?></a></h4>
+
+                <h4 class="product-name">
+
+                    <a href=product.php?produto=<?php echo $produto->getIdProduto();?>><?php echo $produto->getNome()?></a>
+                </h4>
               <p class="price product-price">R$ <?php echo number_format($produto->getValor(),2,',','');?><span class="price-tax"></span></p>
               <p class="product-desc"><?php echo $produto->getDescricao();?>.</p>
               <ul class="button-group list-btn">
