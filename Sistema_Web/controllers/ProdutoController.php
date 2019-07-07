@@ -64,7 +64,7 @@ class ProdutoController{
     }
 
     public static function trazerTodos(){
-        $sql = "SELECT l.*, g.nome AS nome, e.nome AS marca FROM produto l INNER JOIN categoria g ON g.id = l.idcategoria INNER JOIN marca e ON e.id = l.idmarca";
+        $sql = "SELECT * from produto";
         $db = Conexao::getInstance();
         $stmt = $db->query($sql);
         $listagem = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -77,8 +77,10 @@ class ProdutoController{
     }
 
     public static function trazerTodosPorcategoria($categoria){
-        $sql = "SELECT l.*, g.nome AS categoria, e.nome AS marca FROM produto l INNER JOIN categoria g ON g.id = l.idcategoria INNER JOIN marca e ON e.id = l.idmarca WHERE l.idcategoria = :categoria";
-        $db = Conexao::getInstance();
+        $sql = "SELECT  p.* from produto p inner join
+        categoria c on p.idCategoria = c.idCategoria 
+          where p.idCategoria=:categoria ";
+                $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':categoria', $categoria);
         $stmt->execute();
@@ -91,19 +93,37 @@ class ProdutoController{
         return $arrRetorno;
     }
 
+    public static function trazerTodosPorcategoriaEMarca($categoria,$marca){
+        $sql = "SELECT  p.* from produto p inner join
+        categoria c on p.idCategoria = c.idCategoria 
+        inner join marca c on p.idMarca = m.idMarca
+          where p.idCategoria=:categoria and p.idMarca=:marca ";
+        $db = Conexao::getInstance();
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':categoria', $categoria);
+        $stmt->bindValue(':marca', $marca);
+        $stmt->execute();
+        $listagem = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $arrRetorno = array();
+        foreach ($listagem as $itemLista){
+            $arrRetorno[] = self::popularproduto($itemLista);
+        }
+        return $arrRetorno;
+    }
+
     private static function popularproduto($itemLista){
         $produto = new produto();
-        $produto->setId($itemLista['id']);
-        $produto->setTitulo($itemLista['titulo']);
+        $produto->setIdProduto($itemLista['idProduto']);
+        $produto->setNome($itemLista['nome']);
         $produto->setDescricao($itemLista['descricao']);
-        $produto->setAutor($itemLista['autor']);
+        $produto->setSaldo($itemLista['saldo']);
         $produto->setValor($itemLista['valor']);
-        $produto->setAno($itemLista['ano']);
-        $produto->getcategoria()->setId($itemLista['idcategoria']);
-        $produto->getcategoria()->setNome($itemLista['categoria']);
-        $produto->getmarca()->setId($itemLista['idmarca']);
-        $produto->getmarca()->setNome($itemLista['marca']);
-        $produto->setCapaImagem($itemLista['capa']);
+        $produto->getCategoria()->setIdCategoria($itemLista['idCategoria']);
+        $produto->getCategoria()->setDescricao($itemLista['descricao']);
+        $produto->getMarca()->setIdMarca($itemLista['idMarca']);
+        $produto->getMarca()->setDescricao($itemLista['descricao']);
+        $produto->setimagem($itemLista['imagem']);
 
         return $produto;
     }

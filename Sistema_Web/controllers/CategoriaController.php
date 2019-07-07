@@ -1,8 +1,10 @@
 <?php
 require_once "../models/Categoria.php";
+require_once "MarcaController.php";
 require_once "Conexao.php";
 
-class categoriaController
+
+class CategoriaController
 {
     public static function salvar(Categoria $categoria){
         if ($categoria->getidCategoria() > 0){
@@ -49,6 +51,10 @@ class categoriaController
         }
         return $arrRetorno;
     }
+
+
+
+
 
     public static function buscarCategoria($idCategoria){
         $sql = "SELECT * FROM categoria WHERE idCategoria = :idCategoria";

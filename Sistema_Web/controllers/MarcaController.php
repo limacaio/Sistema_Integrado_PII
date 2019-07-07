@@ -50,6 +50,26 @@ class MarcaController
         return $arrRetorno;
     }
 
+    public static function trazerTodasMarcasPorCategoria($idCategoria)
+    {
+        $sql = "SELECT  m.* from marca m 
+        inner join produto p on p.idMarca = m.idMarca 
+        inner join categoria c on c.idCategoria = p.idCategoria
+        WHERE p.idCategoria = :idCategoria
+        ORDER BY m.descricao";
+        $db = Conexao::getInstance();
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':idCategoria', $idCategoria);
+        $stmt->execute();
+        $listagem = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $arrRetorno = array();
+        foreach ($listagem as $itemLista){
+            $arrRetorno[] = self::popularMarca($itemLista);
+        }
+        return $arrRetorno;
+    }
+
     public static function buscarmarca($idMarca){
         $sql = "SELECT * FROM marca WHERE idMarca = :idMarca";
         $db = Conexao::getInstance();
@@ -65,7 +85,7 @@ class MarcaController
         }
     }
 
-    private static function popularmarca($itemLista){
+   private static function popularmarca($itemLista){
         $marca = new marca();
         $marca->setidMarca($itemLista['idMarca']);
         $marca->setdescricao($itemLista['descricao']);
@@ -79,4 +99,6 @@ class MarcaController
         $stmt->bindValue(':idMarca', $idMarca);
         $stmt->execute();
     }
+
+
 }
