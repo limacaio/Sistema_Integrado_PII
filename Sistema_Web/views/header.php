@@ -85,7 +85,7 @@ if (isset($_SESSION['user'])){
                                 </tr>
                                 </tbody>
                             </table>
-                            <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i class="fa fa-shopping-cart"></i> Meu Carrinho</strong></a></span> <span class="btn-checkout"><a href="checkout.html"><strong><i class="fa fa-share"></i> Finalizar</strong></a></span> </p>
+                            <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i class="fa fa-shopping-cart"></i> Meu Carrinho</strong></a></span> <span class="btn-checkout"><a href="checkout.php"><strong><i class="fa fa-share"></i> Finalizar</strong></a></span> </p>
                         </div>
                     </li>
                 </ul>
