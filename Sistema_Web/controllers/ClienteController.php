@@ -15,13 +15,13 @@ class ClienteController
 
     private static function alterar(Cliente $cliente){
         $sql = "UPDATE cliente SET nome = :nome, cpf=:cpf, 
-                endereco=:endereco, telefone=:telefone WHERE id=:id";
+                 telefone=:telefone WHERE id=:id";
 
         $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':nome', $cliente->getNome());
         $stmt->bindValue(':cpf', $cliente->getCpf());
-        $stmt->bindValue(':endereco', $cliente->getEndereco());
+        //$stmt->bindValue(':endereco', $cliente->getEndereco());
         $stmt->bindValue(':telefone', $cliente->getTelefone());
         $stmt->bindValue(':idCliente', $cliente->getId());
 
@@ -31,14 +31,14 @@ class ClienteController
     }
 
     private static function inserir(Cliente $cliente){
-        $sql = "INSERT INTO cliente (nome, cpf, endereco, email, senha, telefone) 
-                VALUES (:nome, :cpf, :endereco, :email, :senha, :telefone)";
+        $sql = "INSERT INTO cliente (nome, cpf, email, senha, telefone) 
+                VALUES (:nome, :cpf,  :email, :senha, :telefone)";
 
         $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':nome', $cliente->getNome());
         $stmt->bindValue(':cpf', $cliente->getCpf());
-        $stmt->bindValue(':endereco', $cliente->getEndereco());
+        //$stmt->bindValue(':endereco', $cliente->getEndereco());
         $stmt->bindValue(':email', $cliente->getEmail());
         $stmt->bindValue(':senha', $cliente->getSenha());
         $stmt->bindValue(':telefone', $cliente->getTelefone());

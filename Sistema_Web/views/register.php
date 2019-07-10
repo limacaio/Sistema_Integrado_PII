@@ -18,7 +18,7 @@ if(isset($_POST['salvar'])){
     $cliente->setTelefone($_POST['telefone']);
 
     ClienteController::salvar($cliente);
-    header('Location:listaClientes.php');
+    header('Location:index.php');
     //echo var_dump($cliente);
 }
 
@@ -64,40 +64,35 @@ if(isset($_POST['salvar'])){
       <form class="form-horizontal" enctype="multipart/form-data" method="post" action="register.php">
         <fieldset id="account">
           <legend>Seus Detalhes Pessoais</legend>
-          <div class="form-group required">
+          <div class="form-group">
               <input type="hidden" name="id" value="<?php echo $cliente->getId();?>">
             <label for="input-firstname" class="col-sm-2 control-label">Nome</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="input-firstname" placeholder="Nome"
-                     value=" <?php echo $cliente->getNome();?>" name="firstname"
+              <input type="text" class="form-control"  name="nome" placeholder="Nome"
+                     value=" <?php echo $cliente->getNome();?>"
                  >
             </div>
           </div>
           <div class="form-group required">
             <label for="input-email" class="col-sm-2 control-label">E-Mail</label>
             <div class="col-sm-10">
-              <input type="email" class="form-control" id="input-email" placeholder="E-Mail"
-                     value=" <?php echo $cliente->getNome();?>" name="email">
+              <input type="email" class="form-control" name="email" placeholder="E-Mail"
+                     value=" <?php echo $cliente->getEmail();?>" >
             </div>
           </div>
-          <div class="form-group required">
-            <label for="input-telephone" class="col-sm-2 control-label">Telefone</label>
-            <div class="col-sm-10">
-              <input type="tel" class="form-control" id="input-telephone" placeholder="Telefone" value="" name="telephone">
-            </div>
-          </div>
+
             <div class="form-group required">
-                <label for="input-telephone" class="col-sm-2 control-label">CPF</label>
+                <label for="input-telephone" class="col-sm-2 control-label">Telefone</label>
                 <div class="col-sm-10">
-                    <input type="tel" class="form-control" id="input-telephone" placeholder="CPF" value="
-                <?php echo $cliente->getTelefone();?>" name="telephone">
+                    <input type="tel" class="form-control"  name="telefone" placeholder="Telefone" value="
+                <?php echo $cliente->getTelefone();?>"">
                 </div>
             </div>
             <div class="form-group required">
                 <label for="input-telephone" class="col-sm-2 control-label">CPF</label>
                 <div class="col-sm-10">
-                    <input type="tel" class="form-control" id="input-telephone" placeholder="CPF" value="
-                <?php echo $cliente->getTelefone();?>" name="telephone">
+                    <input type="tel" class="form-control" name="cpf" placeholder="CPF" value="
+                <?php echo $cliente->getCpf();?>" >
                 </div>
             </div>
 
@@ -108,8 +103,8 @@ if(isset($_POST['salvar'])){
           <div class="form-group required">
             <label for="input-address-1" class="col-sm-2 control-label">Endereço 1</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="input-address-1" placeholder="Endereço 1"
-                     value=" <?php echo $cliente->getEndereco();?>" name="address_1"
+              <input type="text" class="form-control" name="endereco" placeholder="Endereço 1"
+                     value=" <?php echo $cliente->getEndereco();?>"
                  >
             </div>
           </div>
@@ -119,13 +114,13 @@ if(isset($_POST['salvar'])){
               <input type="text" class="form-control" id="input-address-2" placeholder="Endereço 2" value="" name="address_2">
             </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group">
             <label for="input-city" class="col-sm-2 control-label">Cidade</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="input-city" placeholder="Cidade" value="" name="city">
             </div>
           </div>
-          <div class="form-group required">
+          <div class="form-group">
             <label for="input-postcode" class="col-sm-2 control-label">CEP</label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="input-postcode" placeholder="CEP" value="" name="postcode">
@@ -139,7 +134,7 @@ if(isset($_POST['salvar'])){
           <div class="form-group required">
             <label for="input-password" class="col-sm-2 control-label">Senha</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="input-password" placeholder="Senha" value="" name="password">
+              <input type="password" class="form-control" id="input-password" placeholder="Senha" value="<?php echo $cliente->getSenha();?>" name="senha">
             </div>
           </div>
 
@@ -148,7 +143,7 @@ if(isset($_POST['salvar'])){
         </fieldset>
         <div class="buttons">
           <div class="pull-right">
-            <input type="submit" class="btn btn-primary" value="Salvar">
+            <input type="submit" class="btn btn-primary" name="salvar">
           </div>
         </div>
       </form>
