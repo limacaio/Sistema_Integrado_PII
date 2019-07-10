@@ -11,17 +11,22 @@
   <component name="FileEditorManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+=======
+    <leaf>
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+=======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-=======
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/login.php">
-          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="454">
               <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
 >>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
@@ -33,11 +38,17 @@
             <state relative-caret-position="612">
               <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
 >>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+            <state relative-caret-position="153">
+              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+>>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/views/views/register.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -49,18 +60,44 @@
             <state relative-caret-position="119">
               <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
 >>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+        <entry file="file://$PROJECT_DIR$/views/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/register.php">
+<<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="650">
               <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
               <folding>
                 <element signature="n#div#3;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
               </folding>
+=======
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
+              <folding>
+                <element signature="n#div#3;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+              </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/views/views/register.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="177">
+              <caret line="104" column="66" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="66" />
+>>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
             </state>
           </provider>
         </entry>
@@ -75,6 +112,7 @@
       <list>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/views/index.php" />
 =======
         <option value="$PROJECT_DIR$/views/views/register.php" />
@@ -86,6 +124,15 @@
         <option value="$PROJECT_DIR$/views/header.php" />
         <option value="$PROJECT_DIR$/views/register.php" />
 >>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+        <option value="$PROJECT_DIR$/views/views/register.php" />
+        <option value="$PROJECT_DIR$/views/login.php" />
+        <option value="$PROJECT_DIR$/views/header.php" />
+        <option value="$PROJECT_DIR$/views/register.php" />
+=======
+        <option value="$PROJECT_DIR$/views/index.php" />
+>>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
       </list>
     </option>
   </component>
@@ -116,6 +163,9 @@
             </path>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
             <path>
               <item name="Sistema_Web" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sistema_Web" type="462c0819:PsiDirectoryNode" />
@@ -128,10 +178,13 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
 =======
 >>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
 =======
 >>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
           </expand>
           <select />
         </subPane>
@@ -141,7 +194,15 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
+=======
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Sistema_Web" />
+>>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -176,6 +237,7 @@
       <workItem from="1562716905148" duration="237000" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1562717179493" duration="1150000" />
       <workItem from="1562718698559" duration="22000" />
       <workItem from="1562718724203" duration="583000" />
@@ -185,10 +247,19 @@
 =======
       <workItem from="1562717179493" duration="3399000" />
 >>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+      <workItem from="1562717179493" duration="3399000" />
+=======
+      <workItem from="1562717179493" duration="1150000" />
+      <workItem from="1562718698559" duration="22000" />
+      <workItem from="1562718724203" duration="583000" />
+>>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="1992000" />
@@ -202,12 +273,25 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
+=======
+    <option name="totallyTimeSpent" value="3636000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+=======
+    <option name="totallyTimeSpent" value="1992000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+>>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -228,24 +312,28 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/views/views/register.php">
 <<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/views/login.php">
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state relative-caret-position="153">
           <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-=======
-        <state relative-caret-position="187">
-          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
->>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/login.php">
+    <entry file="file://$PROJECT_DIR$/views/views/register.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
+<<<<<<< HEAD
+        <state relative-caret-position="612">
           <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
 =======
+<<<<<<< HEAD
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
@@ -269,6 +357,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/register.php">
       <provider selected="true" editor-type-id="text-editor">
+=======
+        <state relative-caret-position="177">
+          <caret line="104" column="66" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="66" />
+>>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
         <state relative-caret-position="650">
           <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
           <folding>
