@@ -17,7 +17,7 @@ if (isset($_GET['idCliente'])) {
         $cliente->setSenha(md5($_POST['senha']));
         $cliente->setTelefone($_POST['telefone']);
         ClienteController::salvar($cliente);
-        header('Location:login.php');
+        header('Location:index.php');
     }
 }
 else{

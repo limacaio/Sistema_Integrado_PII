@@ -25,7 +25,7 @@ class CarrinhoController
         if (isset($_SESSION['carrinho'])) {
             $carrinho = unserialize($_SESSION['carrinho']);
             foreach ($carrinho as $itemCarrinho) {
-                if ($produto == $itemCarrinho->getProduto()->getId()) {
+                if ($produto == $itemCarrinho->getProduto()->getIdProduto   ()) {
                     return true;
                 }
             }

@@ -2,7 +2,7 @@
 require_once "Venda.php";
 require_once "Produto.php";
 
-class ItemVenda
+class   ItemVenda
 {
     private $id;
     private $produto;

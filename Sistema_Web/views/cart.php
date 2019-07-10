@@ -1,8 +1,10 @@
 <?php
 
 require_once "../controllers/CarrinhoController.php";
+session_start();
 
-if (isset($_GET['produto'])){
+if (isset($_GET['produto']))
+{
     CarrinhoController::adicionarItem($_GET['produto']);
 }
 if (isset($_GET['excluir'])){
