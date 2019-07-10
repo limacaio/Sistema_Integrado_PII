@@ -56,7 +56,7 @@ public class ProdutoDAO {
     //===============BUSCAR PRODUTO=======================================================
     public List<Produto> buscarProdutosDAO() {
 
-        String sql = "SELECT * FROM produto ORDER BY idProduto ";
+        String sql = "SELECT p.*, c.descricao AS categoria ,m.descricao as marca FROM produto p inner JOIN categoria c on c.idCategoria = p.idCategoria inner JOIN marca m on m.idMarca = p.idMarca ORDER BY idProduto ";
 
         PreparedStatement stmt = null;
         ResultSet rs = null;
@@ -78,11 +78,11 @@ public class ProdutoDAO {
                 produto.setUnidadeMedida(rs.getString(Produto.PRODUTO_U_M));
                 
                 Categoria categoria = new Categoria();
-                categoria.setDescricao(rs.getString(Categoria.CATEGORIA_DESC));
+                categoria.setDescricao(rs.getString("categoria"));
                 produto.setCategoria(categoria);
                 
                 Marca marca = new Marca();
-                marca.setDescricaoMarca(rs.getString(Marca.MARCA_DESC));
+                marca.setDescricaoMarca(rs.getString("marca"));
                 produto.setMarca(marca);
                 
                 produto.setImagem(rs.getString(Produto.PRODUTO_IMAGEM));
