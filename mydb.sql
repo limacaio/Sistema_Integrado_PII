@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06-Jul-2019 às 03:28
--- Versão do servidor: 10.3.16-MariaDB
--- versão do PHP: 7.1.30
+-- Generation Time: 10-Jul-2019 às 02:20
+-- Versão do servidor: 10.1.37-MariaDB
+-- versão do PHP: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `mydb`
+-- Database: `mydb`
 --
 
 -- --------------------------------------------------------
@@ -59,6 +59,13 @@ CREATE TABLE `cliente` (
   `senha` varchar(45) NOT NULL,
   `dataNascimento` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `cliente`
+--
+
+INSERT INTO `cliente` (`idCliente`, `nome`, `telefone`, `cpf`, `celular`, `email`, `senha`, `dataNascimento`) VALUES
+(1, 'Igor', '123', '444', '6768', 'aksdj@sfk', '123', '2019-07-01');
 
 -- --------------------------------------------------------
 
@@ -141,6 +148,13 @@ CREATE TABLE `situacao` (
   `descricao` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `situacao`
+--
+
+INSERT INTO `situacao` (`idSituacao`, `descricao`) VALUES
+(1, 'em andamento');
+
 -- --------------------------------------------------------
 
 --
@@ -164,37 +178,57 @@ INSERT INTO `usuario` (`idUsuario`, `nome`, `email`, `senha`, `tipo`, `situacao`
 (39, 'q1', 'q1', 'q1', 'comum', 0),
 (40, 'q2', 'q2', 'q2', 'administrador', 0);
 
+-- --------------------------------------------------------
+
 --
--- Índices para tabelas despejadas
+-- Estrutura da tabela `vendas`
+--
+
+CREATE TABLE `vendas` (
+  `idVendas` int(11) NOT NULL,
+  `data` date NOT NULL,
+  `idCliente` int(11) NOT NULL,
+  `Situacao_idSituacao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `vendas`
+--
+
+INSERT INTO `vendas` (`idVendas`, `data`, `idCliente`, `Situacao_idSituacao`) VALUES
+(1, '2019-07-09', 1, 1);
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `categoria`
+-- Indexes for table `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`idCategoria`);
 
 --
--- Índices para tabela `cliente`
+-- Indexes for table `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`idCliente`);
 
 --
--- Índices para tabela `endereco`
+-- Indexes for table `endereco`
 --
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`idEndereco`,`idCliente`),
   ADD KEY `fkCliente` (`idCliente`);
 
 --
--- Índices para tabela `marca`
+-- Indexes for table `marca`
 --
 ALTER TABLE `marca`
   ADD PRIMARY KEY (`idMarca`);
 
 --
--- Índices para tabela `produto`
+-- Indexes for table `produto`
 --
 ALTER TABLE `produto`
   ADD PRIMARY KEY (`idProduto`,`idMarca`,`idCategoria`),
@@ -202,65 +236,79 @@ ALTER TABLE `produto`
   ADD KEY `fkCategoria` (`idCategoria`);
 
 --
--- Índices para tabela `situacao`
+-- Indexes for table `situacao`
 --
 ALTER TABLE `situacao`
   ADD PRIMARY KEY (`idSituacao`);
 
 --
--- Índices para tabela `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- Indexes for table `vendas`
+--
+ALTER TABLE `vendas`
+  ADD PRIMARY KEY (`idVendas`,`idCliente`,`Situacao_idSituacao`),
+  ADD KEY `fkCliente` (`idCliente`),
+  ADD KEY `fkSituacao` (`Situacao_idSituacao`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `categoria`
+-- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
   MODIFY `idCategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT de tabela `cliente`
+-- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `endereco`
+-- AUTO_INCREMENT for table `endereco`
 --
 ALTER TABLE `endereco`
   MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `marca`
+-- AUTO_INCREMENT for table `marca`
 --
 ALTER TABLE `marca`
   MODIFY `idMarca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT de tabela `produto`
+-- AUTO_INCREMENT for table `produto`
 --
 ALTER TABLE `produto`
   MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `situacao`
+-- AUTO_INCREMENT for table `situacao`
 --
 ALTER TABLE `situacao`
-  MODIFY `idSituacao` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idSituacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- Restrições para despejos de tabelas
+-- AUTO_INCREMENT for table `vendas`
+--
+ALTER TABLE `vendas`
+  MODIFY `idVendas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
 --
 
 --
@@ -275,6 +323,13 @@ ALTER TABLE `endereco`
 ALTER TABLE `produto`
   ADD CONSTRAINT `fk_Produto_Categoria1` FOREIGN KEY (`idCategoria`) REFERENCES `categoria` (`idCategoria`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_Produto_Marca1` FOREIGN KEY (`idMarca`) REFERENCES `marca` (`idMarca`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `vendas`
+--
+ALTER TABLE `vendas`
+  ADD CONSTRAINT `fk_Vendas_Cliente1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Vendas_Situacao1` FOREIGN KEY (`Situacao_idSituacao`) REFERENCES `situacao` (`idSituacao`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
