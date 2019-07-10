@@ -19,6 +19,8 @@ else{
     $listaProdutos = ProdutoController::trazerTodos();
 }
 
+
+
 ?>
 
 
