@@ -34,7 +34,7 @@ if (isset($_GET['logout'])){
             <input type="text" placeholder="email" name="email"/>
             <input type="password" placeholder="password" name="senha"/>
             <button type="submit" name="login">login</button>
-            <p class="message">Não Registrado(a)? <a href="register.hmtl">Criar Conta</a></p>
+            <p class="message">Não Registrado(a)? <a href="register.php">Criar Conta</a></p>
         </form>
     </div>
 </div>
