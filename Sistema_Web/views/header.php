@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['user'])){
     $cliente = new Cliente();
     $cliente = unserialize($_SESSION['user']);
-    var_dump($cliente);
+
 
 }else{
     //header("Location: login.php");
@@ -92,7 +92,7 @@ if (isset($_SESSION['user'])){
                                 </tr>
                                 </tbody>
                             </table>
-                            <p class="text-right"> <span class="btn-viewcart"><a href="cart.html"><strong><i class="fa fa-shopping-cart"></i> Meu Carrinho</strong></a></span> <span class="btn-checkout"><a href="checkout.php"><strong><i class="fa fa-share"></i> Finalizar</strong></a></span> </p>
+                            <p class="text-right"> <span class="btn-viewcart"><a href="cart.php"><strong><i class="fa fa-shopping-cart"></i> Meu Carrinho</strong></a></span> <span class="btn-checkout"><a href="checkout.php"><strong><i class="fa fa-share"></i> Finalizar</strong></a></span> </p>
                         </div>
                     </li>
                 </ul>

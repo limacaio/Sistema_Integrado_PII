@@ -108,7 +108,7 @@ else{
               <ul class="button-group grid-btn">
 
                 <li>
-                  <button type="button" class="addtocart-btn" title="Adicionar ao Carrinho">Adicionar ao Carrinho</button>
+                  <a  href="cart.php?produto=<?php echo $produto->getIdProduto();?>"> title="Adicionar ao Carrinho"></a>
                 </li>
               </ul>
             </div>
@@ -123,7 +123,9 @@ else{
               <ul class="button-group list-btn">
 
                 <li>
-                  <button type="button" class="addtocart-btn" data-toggle="tooltip" data-placement="top" title="Adicionar ao Carrinho"  ><i class="fa fa-shopping-bag"></i></button>
+                    <a class="addtocart-btn" href="cart.php?produto=<?php echo $produto->getIdProduto();?>">
+                        <i class="fa fa-shopping-bag"></i></a>
+
                 </li>
               </ul>
             </div>

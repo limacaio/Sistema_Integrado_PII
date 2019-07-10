@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce89ecca-b40e-4958-8d02-f923ae3f742d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.php" afterDir="false" />
-    </list>
+    <list default="true" id="ce89ecca-b40e-4958-8d02-f923ae3f742d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
-  </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <leaf>
 =======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+<<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+=======
+    <leaf>
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/login.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -41,12 +41,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/login.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="454">
+              <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+>>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
+=======
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="612">
+              <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+>>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
             <state relative-caret-position="153">
               <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
 >>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+<<<<<<< HEAD
 =======
 >>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
             </state>
           </provider>
         </entry>
@@ -54,19 +71,51 @@
       <file pinned="false" current-in-tab="false">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        <entry file="file://$PROJECT_DIR$/views/views/register.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+=======
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
         <entry file="file://$PROJECT_DIR$/views/header.php">
 =======
         <entry file="file://$PROJECT_DIR$/views/views/register.php">
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="187">
               <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+=======
+            <state relative-caret-position="119">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+>>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+        <entry file="file://$PROJECT_DIR$/views/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/views/index.php">
+=======
+        <entry file="file://$PROJECT_DIR$/views/register.php">
+<<<<<<< HEAD
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="650">
+              <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
+              <folding>
+                <element signature="n#div#3;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+              </folding>
+=======
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
             <state relative-caret-position="650">
@@ -85,10 +134,14 @@
             <state relative-caret-position="177">
               <caret line="104" column="66" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="66" />
 >>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+<<<<<<< HEAD
 =======
             <state relative-caret-position="177">
               <caret line="104" column="66" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="66" />
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
             </state>
           </provider>
         </entry>
@@ -103,6 +156,22 @@
       <list>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/views/index.php" />
+=======
+        <option value="$PROJECT_DIR$/views/views/register.php" />
+        <option value="$PROJECT_DIR$/views/login.php" />
+>>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
+=======
+        <option value="$PROJECT_DIR$/views/views/register.php" />
+        <option value="$PROJECT_DIR$/views/login.php" />
+        <option value="$PROJECT_DIR$/views/header.php" />
+        <option value="$PROJECT_DIR$/views/register.php" />
+>>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
         <option value="$PROJECT_DIR$/views/views/register.php" />
         <option value="$PROJECT_DIR$/views/login.php" />
         <option value="$PROJECT_DIR$/views/header.php" />
@@ -110,6 +179,7 @@
 =======
         <option value="$PROJECT_DIR$/views/index.php" />
 >>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+<<<<<<< HEAD
 =======
         <option value="$PROJECT_DIR$/views/index.php" />
 =======
@@ -117,14 +187,17 @@
         <option value="$PROJECT_DIR$/views/login.php" />
 >>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="688" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="820" />
+    <option name="height" value="580" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -132,6 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,9 +219,16 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
             <path>
               <item name="Sistema_Web" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sistema_Web" type="462c0819:PsiDirectoryNode" />
@@ -162,14 +243,21 @@
             </path>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+>>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
+=======
+>>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -179,11 +267,18 @@
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
 =======
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
+=======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Sistema_Web" />
 >>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+<<<<<<< HEAD
 =======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Sistema_Web" />
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -217,12 +312,27 @@
       <workItem from="1562716905148" duration="237000" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      <workItem from="1562717179493" duration="1150000" />
+      <workItem from="1562718698559" duration="22000" />
+      <workItem from="1562718724203" duration="583000" />
+=======
+      <workItem from="1562717179493" duration="1818000" />
+>>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
+=======
+      <workItem from="1562717179493" duration="3399000" />
+>>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+=======
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
       <workItem from="1562717179493" duration="3399000" />
 =======
       <workItem from="1562717179493" duration="1150000" />
       <workItem from="1562718698559" duration="22000" />
       <workItem from="1562718724203" duration="583000" />
 >>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+<<<<<<< HEAD
 =======
       <workItem from="1562717179493" duration="1150000" />
       <workItem from="1562718698559" duration="22000" />
@@ -231,12 +341,31 @@
       <workItem from="1562717179493" duration="1818000" />
 >>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="1992000" />
+=======
+    <option name="totallyTimeSpent" value="2055000" />
+>>>>>>> 7811ba4b7683723984d28f2e2172193e22d9d8db
+=======
+    <option name="totallyTimeSpent" value="3636000" />
+>>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+=======
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
     <option name="totallyTimeSpent" value="3636000" />
   </component>
   <component name="ToolWindowManager">
@@ -248,6 +377,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
 >>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
+<<<<<<< HEAD
 =======
     <option name="totallyTimeSpent" value="1992000" />
 =======
@@ -257,8 +387,11 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19515885" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -283,7 +416,12 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/views/views/register.php">
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/views/login.php">
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
         <state relative-caret-position="153">
@@ -313,6 +451,31 @@
 >>>>>>> e60f082811640c7f313240459d80873fb2fc5c74
           <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
 =======
+<<<<<<< HEAD
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+>>>>>>> ab37e77979f2b2a970d75b3ce3e9bb70713d1dc1
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+=======
         <state relative-caret-position="177">
           <caret line="104" column="66" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="66" />
 >>>>>>> 1bc325db779fc1aa1eb7aa2a994690084a8f3e46
@@ -321,8 +484,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="177">
           <caret line="104" column="66" selection-start-line="104" selection-start-column="61" selection-end-line="104" selection-end-column="66" />
+=======
+>>>>>>> f208c10aee805ee95f5092acdc78c95d98e78f47
+        <state relative-caret-position="650">
+          <caret line="101" column="18" selection-start-line="101" selection-start-column="18" selection-end-line="101" selection-end-column="18" />
+          <folding>
+            <element signature="n#div#3;n#fieldset#0;n#form#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
+          </folding>
+>>>>>>> f72aadba4ff00309cd7572a13ec286414646a984
         </state>
       </provider>
     </entry>
