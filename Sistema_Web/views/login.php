@@ -32,7 +32,7 @@ if (isset($_GET['logout'])){
     <div class="form">
         <form class="login-form" action="login.php" method="post">
             <input type="text" placeholder="email" name="email"/>
-            <input type="password" placeholder="password" name="senha"/>
+            <input type="password" placeholder="senha" name="senha"/>
             <button type="submit" name="login">login</button>
             <p class="message">Não Registrado(a)? <a href="register.php">Criar Conta</a></p>
         </form>

@@ -6,7 +6,8 @@ class ClienteController
 {
 
     public static function salvar(Cliente $cliente){
-        if ($cliente->getId() > 0){
+        if ($cliente->getidCliente
+() > 0){
             return self::alterar($cliente);
         }else{
             return self::inserir($cliente);
@@ -15,15 +16,18 @@ class ClienteController
 
     private static function alterar(Cliente $cliente){
         $sql = "UPDATE cliente SET nome = :nome, cpf=:cpf, 
-                 telefone=:telefone WHERE id=:id";
+                 telefone=:telefone WHERE idCliente
+=:idCliente
+";
 
         $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':nome', $cliente->getNome());
         $stmt->bindValue(':cpf', $cliente->getCpf());
-        //$stmt->bindValue(':endereco', $cliente->getEndereco());
         $stmt->bindValue(':telefone', $cliente->getTelefone());
-        $stmt->bindValue(':idCliente', $cliente->getId());
+        $stmt->bindValue(':idCliente
+Cliente', $cliente->getidCliente
+());
 
         $stmt->execute();
 
@@ -38,7 +42,6 @@ class ClienteController
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':nome', $cliente->getNome());
         $stmt->bindValue(':cpf', $cliente->getCpf());
-        //$stmt->bindValue(':endereco', $cliente->getEndereco());
         $stmt->bindValue(':email', $cliente->getEmail());
         $stmt->bindValue(':senha', $cliente->getSenha());
         $stmt->bindValue(':telefone', $cliente->getTelefone());
@@ -61,12 +64,13 @@ class ClienteController
         return $arrRetorno;
     }
 
-    public static function buscarCliente($id){
-        $sql = "SELECT * FROM cliente WHERE id = :id";
+    public static function buscarCliente($idCliente){
+        $sql = "SELECT * FROM cliente WHERE idCliente = :idCliente
+";
         $db = Conexao::getInstance();
 
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':idCliente', $idCliente);
         $stmt->execute();
 
         $listagem = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -98,7 +102,7 @@ class ClienteController
 
     private static function popularCliente($itemLista){
         $cliente = new Cliente();
-        $cliente->setId($itemLista['idCliente']);
+        $cliente->setidCliente($itemLista['idCliente']);
         $cliente->setNome($itemLista['nome']);
         $cliente->setCpf($itemLista['cpf']);
         $cliente->setEndereco($itemLista['endereco']);
@@ -112,10 +116,9 @@ class ClienteController
 
     private static function popularClienteLogin($itemLista){
         $cliente = new Cliente();
-        $cliente->setId($itemLista['idCliente']);
+        $cliente->setidCliente($itemLista['idCliente']);
         $cliente->setNome($itemLista['nome']);
         $cliente->setCpf($itemLista['cpf']);
-        $cliente->setEndereco($itemLista['endereco']);
         $cliente->setTelefone($itemLista['telefone']);
         $cliente->setCelular($itemLista['celular']);
         $cliente->setDataNascimento($itemLista['dataNascimento']);
@@ -123,11 +126,16 @@ class ClienteController
         return $cliente;
     }
 
-    public static function excluir($id){
-        $sql = "DELETE FROM cliente WHERE id = :id";
+    public static function excluir($idCliente
+){
+        $sql = "DELETE FROM cliente WHERE idCliente
+ = :idCliente
+";
         $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
-        $stmt->bindValue(':id', $id);
+        $stmt->bindValue(':idCliente
+', $idCliente
+);
         $stmt->execute();
     }
 

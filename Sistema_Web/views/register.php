@@ -2,25 +2,46 @@
 require_once "../models/Cliente.php";
 require_once "../controllers/ClienteController.php";
 
+
 $cliente = new Cliente();
 
-if (isset($_GET['id'])){
-    $cliente = ClienteController::buscarCliente($_GET['id']);
-}
+if (isset($_GET['idCliente'])) {
+    $cliente = ClienteController::buscarCliente($_GET['idCliente']);
 
-if(isset($_POST['salvar'])){
-    $cliente->setId($_POST['id']);
+
+    if (isset($_POST['salvar'])) {
+        $cliente->setIdCliente($_POST['idCliente']);
+        $cliente->setNome($_POST['nome']);
+        $cliente->setCpf($_POST['cpf']);
+        $cliente->setEmail($_POST['email']);
+        $cliente->setSenha(md5($_POST['senha']));
+        $cliente->setTelefone($_POST['telefone']);
+        ClienteController::salvar($cliente);
+        header('Location:login.php');
+    }
+}
+else{
+if(isset($_POST['salvar'])) {
+    $cliente->setIdCliente($_POST['idCliente']);
     $cliente->setNome($_POST['nome']);
     $cliente->setCpf($_POST['cpf']);
-    $cliente->setEndereco($_POST['endereco']);
     $cliente->setEmail($_POST['email']);
     $cliente->setSenha(md5($_POST['senha']));
     $cliente->setTelefone($_POST['telefone']);
-
     ClienteController::salvar($cliente);
-    header('Location:index.php');
-    //echo var_dump($cliente);
+
+
+
+   //echo var_dump($cliente);
+
+   // header('Location:register-adress.php');
 }
+}
+
+
+
+
+
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +49,7 @@ if(isset($_POST['salvar'])){
 <head>
 <title>MoonStore</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="widClienteth=device-widClienteth, initial-scale=1">
 <meta name="description" content="e-commerce site well design with responsive view." />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <link href="image/favicon.png" rel="icon" type="image/png" >
@@ -55,6 +76,8 @@ if(isset($_POST['salvar'])){
     <?php
     include_once "header.php";
     ?>
+
+
 </header>
 <div class="container">
   <div class="row">
@@ -65,11 +88,11 @@ if(isset($_POST['salvar'])){
         <fieldset id="account">
           <legend>Seus Detalhes Pessoais</legend>
           <div class="form-group">
-              <input type="hidden" name="id" value="<?php echo $cliente->getId();?>">
+              <input type="hidden" name="idCliente" value="<?php echo $cliente->getidCliente();?>">
             <label for="input-firstname" class="col-sm-2 control-label">Nome</label>
             <div class="col-sm-10">
               <input type="text" class="form-control"  name="nome" placeholder="Nome"
-                     value=" <?php echo $cliente->getNome();?>"
+                     value="<?php echo $cliente->getNome();?>"
                  >
             </div>
           </div>
@@ -77,7 +100,7 @@ if(isset($_POST['salvar'])){
             <label for="input-email" class="col-sm-2 control-label">E-Mail</label>
             <div class="col-sm-10">
               <input type="email" class="form-control" name="email" placeholder="E-Mail"
-                     value=" <?php echo $cliente->getEmail();?>" >
+                     value="<?php echo $cliente->getEmail();?>" >
             </div>
           </div>
 
@@ -97,44 +120,12 @@ if(isset($_POST['salvar'])){
             </div>
 
         </fieldset>
-        <fieldset id="address">
-          <legend>Seu Endereço</legend>
-
-          <div class="form-group required">
-            <label for="input-address-1" class="col-sm-2 control-label">Endereço 1</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="endereco" placeholder="Endereço 1"
-                     value=" <?php echo $cliente->getEndereco();?>"
-                 >
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="input-address-2" class="col-sm-2 control-label">Endereço 2</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="input-address-2" placeholder="Endereço 2" value="" name="address_2">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="input-city" class="col-sm-2 control-label">Cidade</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="input-city" placeholder="Cidade" value="" name="city">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="input-postcode" class="col-sm-2 control-label">CEP</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="input-postcode" placeholder="CEP" value="" name="postcode">
-            </div>
-          </div>
-
-
-        </fieldset>
         <fieldset>
           <legend>Sua Senha</legend>
           <div class="form-group required">
             <label for="input-password" class="col-sm-2 control-label">Senha</label>
             <div class="col-sm-10">
-              <input type="password" class="form-control" id="input-password" placeholder="Senha" value="<?php echo $cliente->getSenha();?>" name="senha">
+              <input type="password" class="form-control" idCliente="input-password" placeholder="Senha" value="<?php echo $cliente->getSenha();?>" name="senha">
             </div>
           </div>
 

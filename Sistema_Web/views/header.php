@@ -19,11 +19,16 @@ if (isset($_SESSION['user'])){
                 <div class="top-right pull-right">
                     <div id="top-links" class="nav pull-right">
                         <ul class="list-inline">
-                            <li class="dropdown"><a href='login.php?logout=true' title="Sair" ><i class="fa fa-user" aria-hidden="true"></i><span>Sair</span> </a>
 
-                                </ul>
+
+                                <?php echo "<li class=\"dropdown\"><a href='register.php?idCliente=".$cliente->getIdCliente()."'
+                                                    title='Meus Dados'><i class='fa fa-user' aria-hidden='true'></i><span>Meus Dados</span> </a></li>";?>
+
+                            <li class="dropdown"><a href='login.php?logout=true' title="Sair" ><i class="fa fa-user" aria-hidden="true"></i><span>Sair</span> </a>
                             </li>
+
                         </ul>
+
 
                     </div>
                 </div>

@@ -3,10 +3,9 @@
 
 class Cliente{
 
-    private $id;
+    private $idCliente;
     private $nome;
     private $cpf;
-    private $endereco;
     private $email;
     private $senha;
     private $telefone;
@@ -14,23 +13,23 @@ class Cliente{
     private $dataNascimento;
 
     public function __construct(){
-        $this->setId(0);
+        $this->setIdCliente(0);
     }
 
     /**
      * @return mixed
      */
-    public function getId()
+    public function getIdCliente()
     {
-        return $this->id;
+        return $this->idCliente;
     }
 
     /**
-     * @param mixed $id
+     * @param mixed $idCliente
      */
-    public function setId($id)
+    public function setIdCliente($idCliente)
     {
-        $this->id = $id;
+        $this->id = $idCliente;
     }
 
     /**
@@ -65,21 +64,6 @@ class Cliente{
         $this->cpf = $cpf;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getEndereco()
-    {
-        return $this->endereco;
-    }
-
-    /**
-     * @param mixed $endereco
-     */
-    public function setEndereco($endereco)
-    {
-        $this->endereco = $endereco;
-    }
 
     /**
      * @return mixed
