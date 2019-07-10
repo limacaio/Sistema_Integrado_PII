@@ -21,6 +21,7 @@ class Endereco
     public function __construct()
     {
         $this->idEndereco = 0;
+        $this->cliente = new Cliente();
 
 
     }
@@ -142,7 +143,7 @@ class Endereco
      */
     public function getCliente()
     {
-        return $this->cliente;
+        return $this->cliente->getIdCliente();
     }
 
     /**
@@ -150,7 +151,7 @@ class Endereco
      */
     public function setCliente($cliente)
     {
-        $this->cliente = $cliente;
+        $this->cliente->setIdCliente(cliente);
     }
 
     /**

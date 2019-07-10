@@ -15,22 +15,19 @@ class ClienteController
     }
 
     private static function alterar(Cliente $cliente){
-        $sql = "UPDATE cliente SET nome = :nome, cpf=:cpf, 
-                 telefone=:telefone WHERE idCliente
-=:idCliente
-";
+        $sql = "UPDATE cliente SET nome = :nome, email = :email, cpf = :cpf, 
+              telefone = :telefone,senha = :senha WHERE idCliente= :idCliente";
 
         $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':nome', $cliente->getNome());
+        $stmt->bindValue(':email', $cliente->getEmail());
         $stmt->bindValue(':cpf', $cliente->getCpf());
         $stmt->bindValue(':telefone', $cliente->getTelefone());
-        $stmt->bindValue(':idCliente
-Cliente', $cliente->getidCliente
-());
+        $stmt->bindValue(':senha', $cliente->getSenha());
+        $stmt->bindValue(':idCliente', $cliente->getIdCliente());
 
         $stmt->execute();
-
         return "OK";
     }
 
@@ -105,12 +102,9 @@ Cliente', $cliente->getidCliente
         $cliente->setidCliente($itemLista['idCliente']);
         $cliente->setNome($itemLista['nome']);
         $cliente->setCpf($itemLista['cpf']);
-        $cliente->setEndereco($itemLista['endereco']);
         $cliente->setTelefone($itemLista['telefone']);
         $cliente->setEmail($itemLista['email']);
         $cliente->setSenha($itemLista['senha']);
-        $cliente->setCelular($itemLista['celular']);
-        $cliente->setDataNascimento($itemLista['dataNascimento']);
         return $cliente;
     }
 

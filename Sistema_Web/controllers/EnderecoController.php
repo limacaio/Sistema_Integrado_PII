@@ -45,8 +45,8 @@ class EnderecoController
 
     private static function inserir(Endereco $endereco)
     {
-        $sql = "INSERT INTO endereco (logradouro, numero, complemento,bairro, cep, cidade, uf, idCliente) 
-                VALUES (:logradouro, :numero, :complemento,:bairro, :cep, :cidade, :uf,:idCliente)";
+        $sql = "INSERT INTO endereco (logradouro, numero, complemento,bairro, cep, cidade, uf) 
+                VALUES (:logradouro, :numero, :complemento,:bairro, :cep, :cidade, :uf)";
 
         $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
@@ -58,7 +58,7 @@ class EnderecoController
         $stmt->bindValue(':cep',$endereco->getCep());
         $stmt->bindValue(":cidade",$endereco->getCidade());
         $stmt->bindValue(":uf",$endereco->getUf());
-        $stmt->bindValue(":idCliente",$endereco->getCliente()->getIdCliente());
+
 
         $stmt->execute();
 

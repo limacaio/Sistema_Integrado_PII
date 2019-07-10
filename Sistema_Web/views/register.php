@@ -29,12 +29,7 @@ if(isset($_POST['salvar'])) {
     $cliente->setSenha(md5($_POST['senha']));
     $cliente->setTelefone($_POST['telefone']);
     ClienteController::salvar($cliente);
-
-
-
-   //echo var_dump($cliente);
-
-   // header('Location:register-adress.php');
+   header('Location:login.php');
 }
 }
 

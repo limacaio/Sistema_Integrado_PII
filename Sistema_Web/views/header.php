@@ -4,6 +4,8 @@ session_start();
 if (isset($_SESSION['user'])){
     $cliente = new Cliente();
     $cliente = unserialize($_SESSION['user']);
+    var_dump($cliente);
+
 }else{
     //header("Location: login.php");
 }

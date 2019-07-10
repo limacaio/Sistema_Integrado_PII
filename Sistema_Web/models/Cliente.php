@@ -29,7 +29,7 @@ class Cliente{
      */
     public function setIdCliente($idCliente)
     {
-        $this->id = $idCliente;
+        $this->idCliente = $idCliente;
     }
 
     /**

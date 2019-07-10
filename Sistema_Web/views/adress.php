@@ -1,21 +1,12 @@
 <?php
-require_once "../models/Cliente.php";
-require_once "../controllers/ClienteController.php";
 require_once "../models/Endereco.php";
 require_once "../controllers/EnderecoController.php";
-session_start();
-if (isset($_SESSION['user'])){
-    $cliente = new Cliente();
-    $cliente = unserialize($_SESSION['user']);
-}
+require_once "../controllers/ClienteController.php";
 $endereco = new Endereco();
 
-
-
-    if (isset($_POST['salvar'])) {
-
-        //echo var_dump($cliente);
-        $endereco->setCliente($cliente);
+    if (isset($_POST['salvarEnd'])) {
+        $endereco->setIdEndereco($_POST['idEndereco']);
+        //$endereco->setCliente($cliente);
         $endereco->setLogradouro($_POST['logradouro']);
         $endereco->setNumero($_POST['numero']);
         $endereco->setComplemento($_POST['complemento']);
@@ -23,8 +14,9 @@ $endereco = new Endereco();
         $endereco->setBairro($_POST['bairro']);
         $endereco->setCidade($_POST['cidade']);
         $endereco->setUf($_POST['uf']);
+        var_dump($endereco);
         EnderecoController::salvar($endereco);
-        header('Location:login.php');
+        //header('Location:index.php');
 
 }
 
@@ -73,14 +65,14 @@ $endereco = new Endereco();
 <div class="container">
   <div class="row">
 
-    <div class="col-sm-9" idCliente="content">
+    <div class="col-sm-9" id="content">
 
-      <form class="form-horizontal" enctype="multipart/form-data" method="post" action="register.php">
+      <form class="form-horizontal" enctype="multipart/form-data" method="post">
 
           <fieldset>
               <legend>Endereço</legend>
               <div class="form-group">
-                  <input type="hidden" name="idEndereco" value="<?php echo $endereco->getIdEndereco()   ;?>">
+                  <input type="hidden" name="idEndereco" value="<?php echo $endereco->getIdEndereco();?>">
 
                   <label for="input-password" class="col-sm-2 control-label">Logradouro</label>
                   <div class="col-sm-10">
@@ -100,7 +92,7 @@ $endereco = new Endereco();
                              name="complemento">
                   </div>
               </div>
-              <div class="form-group required\">
+              <div class="form-group required">
                   <label for="input-password" class="col-sm-2 control-label">Bairro</label>
                   <div class="col-sm-10">
                       <input type="text" class="form-control" placeholder="Bairro" value="<?php echo $endereco->getBairro();?>" name="bairro">
@@ -127,16 +119,9 @@ $endereco = new Endereco();
 
 
           </fieldset>
-
-
-
-
-
-
-        </fieldset>
         <div class="buttons">
-          <div class="pull-right">
-            <input type="submit" class="btn btn-primary" name="salvar">
+          <div >
+            <input type="submit" class="btn" name="salvarEnd">
           </div>
         </div>
       </form>
