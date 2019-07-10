@@ -13,7 +13,7 @@ class CarrinhoController
                 $carrinho = unserialize($_SESSION['carrinho']);
             }
             $itemCarrinho = new ItemCarrinho();
-            $itemCarrinho->setproduto(produtoController::buscarproduto($_GET['produto']));
+            $itemCarrinho->setproduto(produtoController::buscarProduto($_GET['produto']));
             $itemCarrinho->setQuantidade(1);
             $carrinho[] = $itemCarrinho;
             $_SESSION['carrinho'] = serialize($carrinho);
@@ -25,7 +25,7 @@ class CarrinhoController
         if (isset($_SESSION['carrinho'])) {
             $carrinho = unserialize($_SESSION['carrinho']);
             foreach ($carrinho as $itemCarrinho) {
-                if ($produto == $itemCarrinho->getproduto()->getId()) {
+                if ($produto == $itemCarrinho->getProduto()->getId()) {
                     return true;
                 }
             }
