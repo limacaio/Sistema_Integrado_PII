@@ -5,7 +5,7 @@ if (isset($_SESSION['user'])){
     $cliente = new Cliente();
     $cliente = unserialize($_SESSION['user']);
 }else{
-    header("Location: login.php");
+    //header("Location: login.php");
 }
 ?>
 <div class="header-top">
