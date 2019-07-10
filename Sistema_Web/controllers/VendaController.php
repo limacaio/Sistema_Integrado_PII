@@ -11,7 +11,7 @@ class VendaController
         $db = Conexao::getInstance();
         $stmt = $db->prepare($sql);
         $stmt->bindValue(':data', $venda->getDataVenda());
-        $stmt->bindValue(':idCliente', $venda->getCliente()->getId());
+        $stmt->bindValue(':idCliente', $venda->getCliente()->getIdCliente());
         $stmt->bindValue(':Situacao_idSituacao', 1);
 
         $stmt->execute();

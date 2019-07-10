@@ -7,24 +7,25 @@ require_once "../controllers/ItemVendaController.php";
 
 
     if (isset($_SESSION['carrinho'])) {
-        $venda = new Venda();
-        $venda->setCliente(unserialize($_SESSION['cliente']));
-        $venda->setDataVenda(date('Y-m-d'));
-        VendaController::inserir($venda);
-        $venda = VendaController::buscarVenda($venda);
+        //$venda = new Venda();
+        //$venda->setCliente(unserialize($_SESSION['user']));
+       // $venda->setDataVenda(date('Y-m-d'));
+       // VendaController::inserir($venda);
+       // $venda = VendaController::buscarVenda($venda);
 
         $carrinho = unserialize($_SESSION['carrinho']);
 
         foreach ($carrinho as $itemCarrinho) {
-            $itemVenda = new ItemVenda();
-            $itemVenda->setVenda($venda);
-            $itemVenda->setLivro($itemCarrinho->getProduto());
-            $itemVenda->setQuantidade($itemCarrinho->getQuantidade());
-            $itemVenda->setValorProduto($itemCarrinho->getProduto()->getValor());
-            ItemVendaController::inserir($itemVenda);
+           // $itemVenda = new ItemVenda();
+            //$itemVenda->setVenda($venda);
+            //$itemVenda->setProduto($itemCarrinho->getProduto());
+//            $itemVenda->setValorProduto($itemCarrinho->getProduto()->getValor());
+            //ItemVendaController::inserir($itemVenda);
         }
-        unset($_SESSION['carrinho']);
+        //unset($_SESSION['carrinho']);
     }
+
+
 
 
 
@@ -114,7 +115,7 @@ $('input[name=\'shipping_address\']').on('change', function() {
           <div id="collapse-checkout-confirm" role="heading" class="panel-collapse collapse in" aria-expanded="true" style="">
             <div class="panel-body">
               <div class="table-responsive">
-                <table class="table table-bordered table-hover">
+                <table class="table table-bordered table-hover" >
                   <thead>
                     <tr>
                       <td class="text-left">Nome do Produto</td>
@@ -125,17 +126,29 @@ $('input[name=\'shipping_address\']').on('change', function() {
                     </tr>
                   </thead>
                   <tbody>
+                  <?php
+                  $carrinho = unserialize($_SESSION['carrinho']);
+                  $posicao = 0;
+                  $total = 0;
+                  foreach ($carrinho as $itemCarrinho) {
+                  ?>
                     <tr>
-                        <?php
-                        foreach ($carrinho as $itemCarrinho) {
-                        ?>
-                        <td class="text-left">Product 19</td>
-                      <td class="text-left">Product 19</td>
-                      <td class="text-right">1</td>
-                      <td class="text-right">$1,000.00</td>
-                      <td class="text-right">$1,000.00</td>
+
+                        <td class="text-left"><?php echo $itemCarrinho->getProduto()->getNome()?></td>
+                      <td class="text-left"><?php echo $itemCarrinho->getProduto()->getCategoria()->getDescricao()?></td>
+                      <td class="text-right"><?php echo $itemCarrinho->getQuantidade()?></td>
+                      <td class="text-right" > <?php echo $itemCarrinho->getProduto()->getValor()?></td>
+
+                      <td class="text-right"> <?php
+                               echo $itemCarrinho->getQuantidade() * $itemCarrinho->getProduto()->getValor()
+
+
+                                ?></td>
                      <?php
+                     $total +=$itemCarrinho->getQuantidade() * $itemCarrinho->getProduto()->getValor();
+                     $posicao++;
                         }
+
                         ?>
 
                     </tr>
@@ -146,14 +159,19 @@ $('input[name=\'shipping_address\']').on('change', function() {
                     </tr>
                     <tr>
                       <td class="text-right" colspan="4"><strong>Total:</strong></td>
-                      <td class="text-right">$1,005.00</td>
+                      <td class="text-right"><?php echo $total ?></td>
                     </tr>
                   </tfoot>
                 </table>
               </div>
               <div class="buttons">
                 <div class="pull-right">
-                  <input type="button" data-loading-text="Loading..." class="btn btn-primary" id="button-confirm" value="Confirmar Pedido">
+                  <input type="button" data-loading-text="Loading..." name="bt-sucess"class="btn btn-primary" id="button-confirm" value="Confirmar Pedido" onclick="myFunction()"   >
+                    <script>
+                        function myFunction() {
+                            alert("Compra concluída");
+                        }
+                    </script>
                 </div>
               </div>
             </div>
