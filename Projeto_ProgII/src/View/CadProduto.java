@@ -40,6 +40,8 @@ import Controller.ProdutoController;
 import Model.Categoria;
 import Model.Marca;
 import Model.Produto;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CadProduto extends JFrame {
 
@@ -118,6 +120,17 @@ public class CadProduto extends JFrame {
 		txtValVenda.setColumns(10);
 		
 		JLabel lblCategoria = new JLabel("Categoria");
+		lblCategoria.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				CadCategoria cadCategoria = new CadCategoria();
+				cadCategoria.setVisible(true);
+				cadCategoria.setLocationRelativeTo(null);
+				GerProduto gerProduto = new GerProduto();
+				gerProduto.atualizarTabelaProduto();
+			}
+		});
 		lblCategoria.setBounds(587, 25, 74, 14);
 		panel.add(lblCategoria);
 		//===============================================================================
@@ -265,6 +278,7 @@ public class CadProduto extends JFrame {
 		        txtValVenda.setText("");
 		        txtSaldoEstoque.setText("");
 		        txtUnidMedida.setText("");
+		        txtImagem.setText("");
 		        
 				
 			}
@@ -294,7 +308,7 @@ public class CadProduto extends JFrame {
 	public void copyFileToProject(String path, String fileName){
 		//caminho do arquivo cópia
 		caminhoteste = fileName;
-		Path copied = Paths.get("C:\\xampp\\htdocs\\Sistema_Integrado_PII\\Sistema_Web\\views\\image\\"+fileName);
+		Path copied = Paths.get("C:\\xampp\\htdocs\\Sistema_Integrado_PII\\Sistema_Web\\views\\image\\products\\"+fileName);
 		//caminho do arquivo original
 	    Path originalPath = Paths.get(path);
 	    
