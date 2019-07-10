@@ -1,12 +1,17 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
@@ -50,6 +55,7 @@ public class CadProduto extends JFrame {
 	private JComboBox cbCategoria;
 	private JTextField txtUnidMedida;
 	private JLabel lbImagem;
+	private String caminhoteste;
 
 	/**
 	 * Launch the application.
@@ -227,6 +233,7 @@ public class CadProduto extends JFrame {
 		btnSalvar_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+			
 				Produto produto = new Produto();
 				Categoria categ = new Categoria();
 				Marca marca = new Marca();
@@ -238,7 +245,7 @@ public class CadProduto extends JFrame {
 		        
 		        produto.setNomeProduto(txtNomeProd.getText());
 		        produto.setDescricaoProduto(txtDescProd.getText());
-		        produto.setImagem(txtImagem.getText());
+		        produto.setImagem(caminhoteste);
 		        produto.setPrecoVenda(Float.parseFloat(txtValVenda.getText()));
 		        produto.setEstoque(Integer.parseInt (txtSaldoEstoque.getText()));
 		        produto.setUnidadeMedida(txtUnidMedida.getText());
@@ -274,10 +281,31 @@ public class CadProduto extends JFrame {
 			FileNameExtensionFilter filtro = new FileNameExtensionFilter("JPG & GIF Images", "jpg", "gif","png");//definindo um filtro de extensão
 			caminhoImagem.setFileFilter(filtro);
 			caminhoImagem.showOpenDialog(new Panel());
-			txtImagem.setText(caminhoImagem.getSelectedFile().getAbsolutePath());
+			File caminhoPath = caminhoImagem.getSelectedFile();
+			txtImagem.setText(caminhoPath.getAbsolutePath().toString());
+			copyFileToProject(caminhoPath.getAbsolutePath(),caminhoPath.getName());
+			
 			}catch(Exception ex) {
 				JOptionPane.showMessageDialog(null, "Não foi possivel Carregar a Imagem");
 				
 			}
 	}
+	
+	public void copyFileToProject(String path, String fileName){
+		//caminho do arquivo cópia
+		caminhoteste = fileName;
+		Path copied = Paths.get("C:\\xampp\\htdocs\\Sistema_Integrado_PII\\Sistema_Web\\views\\image\\"+fileName);
+		//caminho do arquivo original
+	    Path originalPath = Paths.get(path);
+	    
+	    try {
+	    	//cria a cópia do arquivo, substituindo na pasta definida caso exista algum com o mesmo nome
+			Files.copy(originalPath, copied, StandardCopyOption.REPLACE_EXISTING);
+	    }catch(Exception ex) {
+	    	
+	    }
+	}
+	
+
+	
 }
