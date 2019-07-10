@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_usuarios" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="be44cebb-21eb-4232-be5e-31f0acc84430">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.background.image" value="C:\Users\User\Downloads\collaboration.png"/>
+	<property name="ireport.background.image.properties" value="false,true,0.25,0,0,0,0,0,0"/>
+	<queryString>
+		<![CDATA[select * from usuario]]>
+	</queryString>
+	<field name="idUsuario" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="senha" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="situacao" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="Administradores">
+		<groupExpression><![CDATA[$F{tipo}]]></groupExpression>
+		<groupHeader>
+			<band height="24">
+				<textField>
+					<reportElement x="2" y="0" width="195" height="20" uuid="315be961-c4ed-434d-95b1-d083dd56e762"/>
+					<textElement>
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Usuário " + $F{tipo}.toString()]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="situacao">
+		<groupExpression><![CDATA[$F{situacao}]]></groupExpression>
+		<groupHeader>
+			<band height="22">
+				<textField>
+					<reportElement x="19" y="0" width="100" height="22" uuid="9d053778-c099-4433-87e5-12ee051f5936"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isItalic="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{situacao}.intValue()==0?"Ativos":"Inativos"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="1" width="552" height="70" uuid="678cf334-84c8-4041-94aa-698f34bd1db7"/>
+			</rectangle>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="414" y="3" width="137" height="20" uuid="113bb9e7-3436-444a-a2b0-c4fd3266e368"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="149" y="55" width="273" height="20" uuid="546587ae-0f1b-4d61-90c0-a261ddb25796"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Usuários Cadastrados no Sistema]]></text>
+			</staticText>
+			<image>
+				<reportElement x="32" y="3" width="52" height="52" uuid="bb6fe106-5f61-4aba-b0af-ae325f091a96"/>
+				<imageExpression><![CDATA["C:\\Users\\User\\Downloads\\report.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="146" y="13" width="286" height="32" uuid="3be64b44-1db6-489c-8666-68589b9c1e3a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Bodoni MT Black" size="24"/>
+				</textElement>
+				<text><![CDATA[SIISGLE]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="2" width="555" height="20" uuid="ad705206-97e8-4aa7-a041-61d52e07a802"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="46" y="2" width="100" height="20" uuid="67fe6dbb-e9ca-4603-b93a-dacd18b8d23f"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="3" width="100" height="20" uuid="ca840edc-0ed8-41b5-abb7-d9e72943ab2b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Situacao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="3" width="100" height="20" uuid="7079c079-d647-42a8-9d1c-0b9e5cbdf1e5"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="162" y="3" width="100" height="20" uuid="a52f6475-70ae-44ed-9577-04081f97103c"/>
+				<textElement>
+					<font fontName="Calibri" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[e-mail]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<elementGroup>
+				<textField>
+					<reportElement x="344" y="0" width="100" height="20" uuid="5da94bda-26f2-4aa4-af66-94f392113ef4"/>
+					<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+				</textField>
+				<elementGroup>
+					<textField>
+						<reportElement x="46" y="0" width="100" height="20" uuid="9d365a8e-d222-4fe0-9a05-20774b31f422"/>
+						<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="162" y="0" width="100" height="20" uuid="a06a2fca-2522-4433-a028-09e4ed4c7c5f"/>
+						<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="448" y="0" width="100" height="20" uuid="c919a367-edd7-4159-91c2-9b69a6ac3767"/>
+						<textElement textAlignment="Center"/>
+						<textFieldExpression><![CDATA[$F{situacao}.intValue()==0?"Ativo":"Inativo"]]></textFieldExpression>
+					</textField>
+				</elementGroup>
+			</elementGroup>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="301" y="5" width="195" height="20" uuid="20bb7ef9-4ec4-455c-ae88-a37c08acc4f4"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Quantidade de registros encontrados: " + $V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="322" y="20" width="191" height="1" uuid="e7fd6913-a32e-4060-8f9e-6391a7b7b462"/>
+			</line>
+			<line>
+				<reportElement x="322" y="5" width="191" height="1" uuid="52451a32-239d-4e86-a9f7-038445fb4796"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="487" y="9" width="61" height="20" uuid="cce8d568-0c54-42f6-b13a-338cef69bbe4"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="14" width="178" height="15" uuid="75a3bd44-6f68-4464-a80d-3088a0815c76"/>
+				<textElement>
+					<font fontName="Calibri" size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Relatório emitido pelo SIISGLE]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
