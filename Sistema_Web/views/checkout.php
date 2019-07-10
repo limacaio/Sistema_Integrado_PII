@@ -1,3 +1,36 @@
+<?php
+session_start();
+
+require_once "../controllers/VendaController.php";
+require_once "../controllers/CarrinhoController.php";
+require_once "../controllers/ItemVendaController.php";
+
+
+    if (isset($_SESSION['carrinho'])) {
+        $venda = new Venda();
+        $venda->setCliente(unserialize($_SESSION['cliente']));
+        $venda->setDataVenda(date('Y-m-d'));
+        VendaController::inserir($venda);
+        $venda = VendaController::buscarVenda($venda);
+
+        $carrinho = unserialize($_SESSION['carrinho']);
+
+        foreach ($carrinho as $itemCarrinho) {
+            $itemVenda = new ItemVenda();
+            $itemVenda->setVenda($venda);
+            $itemVenda->setLivro($itemCarrinho->getProduto());
+            $itemVenda->setQuantidade($itemCarrinho->getQuantidade());
+            $itemVenda->setValorProduto($itemCarrinho->getProduto()->getValor());
+            ItemVendaController::inserir($itemVenda);
+        }
+        unset($_SESSION['carrinho']);
+    }
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -93,18 +126,22 @@ $('input[name=\'shipping_address\']').on('change', function() {
                   </thead>
                   <tbody>
                     <tr>
-                      <td class="text-left"><a href="http://localhost/opc001/index.php?route=product/product&amp;product_id=46">Sony VAIO</a></td>
+                        <?php
+                        foreach ($carrinho as $itemCarrinho) {
+                        ?>
+                        <td class="text-left">Product 19</td>
                       <td class="text-left">Product 19</td>
                       <td class="text-right">1</td>
                       <td class="text-right">$1,000.00</td>
                       <td class="text-right">$1,000.00</td>
+                     <?php
+                        }
+                        ?>
+
                     </tr>
                   </tbody>
                   <tfoot>
-                    <tr>
-                      <td class="text-right" colspan="4"><strong>Sub-Total:</strong></td>
-                      <td class="text-right">$1,000.00</td>
-                    </tr>
+
                     <tr>
                     </tr>
                     <tr>

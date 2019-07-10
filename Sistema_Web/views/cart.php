@@ -112,7 +112,7 @@ if (!isset($_SESSION['carrinho'])){
 
               <tr>
                 <td class="text-right"><strong>Total:</strong></td>
-                <td class="text-right">$254.00</td>
+                <td class="text-right">R$ <?php echo number_format($total,2,',','');?></td>
               </tr>
             </tbody>
           </table>
