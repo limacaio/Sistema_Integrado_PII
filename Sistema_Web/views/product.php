@@ -61,7 +61,7 @@ if (isset($_GET['produto'])){
             <li>
               <h2 class="productpage-price">R$ <?php echo number_format($produto->getValor(),2,',','');?></h2>
             </li>
-            <li><span class="productinfo-tax">Ex Tax: $100.00</span></li>
+
           </ul>
           <hr>
           <ul class="list-unstyled product_info">
@@ -70,7 +70,7 @@ if (isset($_GET['produto'])){
               <span> <a href="#"><?php echo $produto->getMarca()->getDescricao();?></a></span></li>
             <li>
               <label>Código do Produto:</label>
-              <span> ??</span></li>
+              <span> <?php echo $produto->getIdProduto();?></span></li>
             <li>
               <label>Disponibilidade:</label>
               <span> Em Estoque</span></li>

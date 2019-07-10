@@ -7,17 +7,20 @@ $listaCategorias = CategoriaController::trazerTodos();
 $listaMarcas = null;
 $listaProdutos = null;
 $listaProdutos = ProdutoController::trazerTodos();
+
 if (isset($_GET['categoria']))
 {
     $listaProdutos = ProdutoController::trazerTodosPorCategoria($_GET['categoria']);
 }
-if (isset($_GET['categoria'])&&isset($_GET['marca']))
+elseif (isset($_GET['categoria'])&&isset($_GET['marca']))
 {
     $listaProdutos = ProdutoController::trazerTodosPorcategoriaEMarca($_GET['categoria'],$_GET['marca']);
 }
 else{
     $listaProdutos = ProdutoController::trazerTodos();
 }
+
+
 
 ?>
 
@@ -126,7 +129,7 @@ else{
             </div>
 
 
-          </div>";
+          </div>
 
 
             <?php }  ?>
