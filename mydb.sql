@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Jul-2019 às 02:20
--- Versão do servidor: 10.1.37-MariaDB
--- versão do PHP: 7.3.0
+-- Generation Time: 10-Jul-2019 às 06:14
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -89,6 +89,20 @@ CREATE TABLE `endereco` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `itemvenda`
+--
+
+CREATE TABLE `itemvenda` (
+  `idItemVenda` int(11) NOT NULL,
+  `idProduto` int(11) NOT NULL,
+  `idVendas` int(11) NOT NULL,
+  `quantidade` int(10) NOT NULL,
+  `valor` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `marca`
 --
 
@@ -153,7 +167,9 @@ CREATE TABLE `situacao` (
 --
 
 INSERT INTO `situacao` (`idSituacao`, `descricao`) VALUES
-(1, 'em andamento');
+(1, 'pagamento efetuado'),
+(2, 'aguardando pagamento'),
+(3, 'entregue à transportadora');
 
 -- --------------------------------------------------------
 
@@ -196,7 +212,7 @@ CREATE TABLE `vendas` (
 --
 
 INSERT INTO `vendas` (`idVendas`, `data`, `idCliente`, `Situacao_idSituacao`) VALUES
-(1, '2019-07-09', 1, 1);
+(1, '2019-07-09', 1, 3);
 
 --
 -- Indexes for dumped tables
@@ -220,6 +236,14 @@ ALTER TABLE `cliente`
 ALTER TABLE `endereco`
   ADD PRIMARY KEY (`idEndereco`,`idCliente`),
   ADD KEY `fkCliente` (`idCliente`);
+
+--
+-- Indexes for table `itemvenda`
+--
+ALTER TABLE `itemvenda`
+  ADD PRIMARY KEY (`idItemVenda`),
+  ADD KEY `fkVendas` (`idVendas`),
+  ADD KEY `fkProduto` (`idProduto`);
 
 --
 -- Indexes for table `marca`
@@ -278,6 +302,12 @@ ALTER TABLE `endereco`
   MODIFY `idEndereco` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `itemvenda`
+--
+ALTER TABLE `itemvenda`
+  MODIFY `idItemVenda` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `marca`
 --
 ALTER TABLE `marca`
@@ -293,7 +323,7 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT for table `situacao`
 --
 ALTER TABLE `situacao`
-  MODIFY `idSituacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idSituacao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -316,6 +346,13 @@ ALTER TABLE `vendas`
 --
 ALTER TABLE `endereco`
   ADD CONSTRAINT `fk_Endereco_Cliente1` FOREIGN KEY (`idCliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `itemvenda`
+--
+ALTER TABLE `itemvenda`
+  ADD CONSTRAINT `fk_Produto_has_Vendas_Produto1` FOREIGN KEY (`idProduto`) REFERENCES `produto` (`idProduto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_Produto_has_Vendas_Vendas1` FOREIGN KEY (`idVendas`) REFERENCES `vendas` (`idVendas`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `produto`
