@@ -81,14 +81,15 @@ if (isset($_GET['produto'])){
             <div class="form-group">
 
               <div class="qty">
-                <label>Quantidade</label>
-                <input id="qty" placeholder="1" type="number">
-                <ul class="button-group list-btn">
+               
+                  <ul class="button-group list-btn">
 
-                  <li>
-                    <button type="button" class="addtocart-btn" data-toggle="tooltip" data-placement="top" title="Add to Cart"  ><i class="fa fa-shopping-bag"></i></button>
+                      <li>
+                          <a class="addtocart-btn" href="cart.php?produto=<?php echo $produto->getIdProduto();?>">
+                              <i class="fa fa-shopping-bag"></i></a>
 
-                </ul>
+                      </li>
+                  </ul>
               </div>
             </div>
           </div>
