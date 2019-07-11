@@ -5,7 +5,9 @@ require_once "../controllers/VendaController.php";
 require_once "../controllers/CarrinhoController.php";
 require_once "../controllers/ItemVendaController.php";
 
-
+if (!isset($_SESSION['cliente'])){
+    header('Location: login.php');
+}else {
     if (isset($_SESSION['carrinho'])) {
         //$venda = new Venda();
         //$venda->setCliente(unserialize($_SESSION['user']));
@@ -25,7 +27,7 @@ require_once "../controllers/ItemVendaController.php";
         //unset($_SESSION['carrinho']);
     }
 
-
+}
 
 
 
