@@ -81,7 +81,7 @@ if (isset($_GET['produto'])){
             <div class="form-group">
 
               <div class="qty">
-               
+
                   <ul class="button-group list-btn">
 
                       <li>

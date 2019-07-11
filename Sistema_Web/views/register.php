@@ -102,15 +102,13 @@ if(isset($_POST['salvar'])) {
             <div class="form-group required">
                 <label for="input-telephone" class="col-sm-2 control-label">Telefone</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control"  name="telefone" placeholder="Telefone" value="
-                <?php echo $cliente->getTelefone();?>"">
+                    <input type="phone" class="form-control"  name="telefone" placeholder="Telefone" value="<?php echo $cliente->getTelefone();?>"">
                 </div>
             </div>
             <div class="form-group required">
                 <label for="input-telephone" class="col-sm-2 control-label">CPF</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" name="cpf" placeholder="CPF" value="
-                <?php echo $cliente->getCpf();?>" >
+                    <input type="phone" class="form-control" name="cpf" placeholder="CPF" value="<?php echo $cliente->getCpf();?>" >
                 </div>
             </div>
 
